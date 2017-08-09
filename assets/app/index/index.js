@@ -15,9 +15,7 @@ $(function () {
     var i = 0;
     $(".menu-friend-toggle").click(function (e) {
         e.preventDefault();
-        if (i == 0) { $("#wrapper").addClass("toggled"); i++; }
-        else { $("#wrapper").removeClass("toggled"); i--; }
-
+        $("#wrapper").toggleClass("toggled");
     });
     var friendIdSearch;
     $('#search-friend-modal').on('hidden.bs.modal', function () {
