@@ -114,6 +114,8 @@ module.exports.routes = {
   'POST /question/getanswercorrect' :'QuestionController.getAnswerCorrect',
 
   '/play': 'HomeController.play',
+  
+  'POST /game/isplaying':'GameController.isPlaying',
 
   'POST /game/rank/register':'GameController.rankRegister',
 

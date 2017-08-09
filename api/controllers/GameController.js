@@ -341,6 +341,8 @@ module.exports = {
 					    			Game.findOne({select: ['id','user_one','user_two','user_one_score', 'user_two_score'], where: {id:game.id} }).exec(function(err, g){
 					    				sails.sockets.broadcast('play-' + id1, 'receiveQuestion', {me_score:g.user_one_score,compatitor_score:g.user_two_score,correct:correct, gameReview:sails.config.globals._1vs1['room' + gameId].game,me:'u1',reviewQuestion: reviewQuestion});
 										sails.sockets.broadcast('play-' + id2, 'receiveQuestion', {me_score:g.user_two_score,compatitor_score:g.user_one_score,correct:correct, gameReview:sails.config.globals._1vs1['room' + gameId].game,me:'u2',reviewQuestion: reviewQuestion});
+										sails.sockets.broadcast('play-' + id1, 'finishGame', {});
+										sails.sockets.broadcast('play-' + id2, 'finishGame', {});
 										delete sails.config.globals._1vs1['room' + gameId];
 										socRQ.destroyPlay(id1,function(){});
 										socRQ.destroyPlay(id2,function(){});
@@ -826,6 +828,19 @@ module.exports = {
 	    	res.json({message:'have_err'})
 	    });
 
+	},
+	isPLaying: function(req, res){
+		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
+		Game.findOne({
+			or : [
+				{ user_one:req.session.passport.user , currentQuestion: { '!': null }},
+				{ user_two:req.session.passport.user , currentQuestion: { '!': null }}
+			]
+		}).populate('user_one').populate('user_two').exec(function(err, game){
+			if(err) return res.json({message:'have_err'});
+			if(game) return res.json({message:'user_is_playing'});
+			if(!game) return res.json({message:'user_not_playing'});
+		})
 	}
 };
 

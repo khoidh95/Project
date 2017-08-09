@@ -9,11 +9,18 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                     <li style="width: 95px;" ng-if="indexIsPlaying">
+                       <a href="/play" class="dropdown-toggle dropdow-brand-menu">
+                              <div class="pill -type-night -icon-position-left -layout-inline -center-center" style="background: #00AEEF">
+                                <img src="/images/playing.gif" class="img-responsive">
+                              </div>
+                        </a>
+                    </li> 
                     <li>
                        <a href="#" class="dropdown-toggle dropdow-brand-menu">
                               <div class="pill -type-night -icon-position-left -layout-inline -center-center">
                                  <div class="-layout-h -center -space-h-8">
-                                    <img src="/images/lever.png" width="24" height="24">
+                                    <img src="/images/level.png" width="24" height="24">
                                     <div class="-font-size-14">
                                        <%= user.level%>
                                     </div>
@@ -36,7 +43,7 @@
                                       <span>{{r.displayName}}</span>
                                       <div>
                                         <span>
-                                          <img src="/images/lever.png" width="24" height="24"> {{r.level}}
+                                          <img src="/images/level.png" width="24" height="24"> {{r.level}}
                                         </span>
                                         <span>
                                           <img src="/images/coin.svg" width="24" height="24"> {{r.score}}

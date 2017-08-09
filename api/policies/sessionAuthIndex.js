@@ -12,9 +12,15 @@ module.exports = function(req, res, next) {
   // User is allowed, proceed to the next policy, 
   // or if this is the last policy, the controller
   if (req.isAuthenticated()) {
-    	return next();
+  	User.findOne({id:req.session.passport.user}).exec(function(err, user){
+  		if(user.role == 'admin'){
+  			req.session.passport.role = 'admin';
+  			return res.redirect('/admin');
+  		}else{
+  			return next();
+  		}
+  	})
+  }else{
+  	return res.redirect('/login');
   }
-  // User is not allowed
-  // (default res.forbidden() behavior can be overridden in `config/403.js`)
-  return res.redirect('/login');
 };

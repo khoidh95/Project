@@ -12,13 +12,9 @@ $(function () {
             $(this).remove();
         });
     }, 5000);
-    var i = 0;
     $(".menu-friend-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
-        // if (i == 0) { $("#wrapper").addClass("toggled"); i++; }
-        // else { $("#wrapper").removeClass("toggled"); i--; }
-
     });
     var friendIdSearch;
     $('#search-friend-modal').on('hidden.bs.modal', function () {
@@ -508,13 +504,7 @@ $(function () {
                     });
                     return;
                 } else if (res.message == 'user_is_playing') {
-                    utils.alert({
-                        title: 'Thong bao',
-                        msg: 'You are playing a game.You must finish that game to start a new game',
-                        callback: function () {
-                            window.location.href = window.location.origin + '/play';
-                        }
-                    });
+                    $scope.backToGameNoti();
                     return;
                 } else if (res.message == 'friend_is_playing') {
                     utils.alert({
@@ -660,7 +650,38 @@ $(function () {
             $scope.history_test.current--;
             $scope.loadHistoryTest();
         }
+
+        //CODE XU LY PHAN ICON QUAY LAI GAME SAU KHI RA INDEX VA CAC TRANG KHAC
+        $scope.indexIsPlaying = false;
+        $scope.isPlaying = function () {
+            $http.post("/game/isplaying", {}, {}).then(function (res) {
+                if (res.data.message == 'user_not_playing') {
+                    $scope.indexIsPlaying = false;
+                } else if (res.data.message == 'user_is_playing') {
+                    $scope.indexIsPlaying = true;
+                }
+
+            });
+        }
+        $scope.backToGameNoti = function () {
+            utils.confirm({
+                title: 'Thong bao',
+                msg: 'Bạn đang trong trận. Bạn có muốn quay lại game không?',
+                okText: 'Có',
+                cancelText: 'Không',
+                callback: function () {
+                    window.location.href = window.location.origin + '/play';
+                }
+            });
+        }
+        io.socket.on('finishGame', function (data) {
+            $scope.indexIsPlaying = false;
+            console.log('finish')
+            $scope.$apply();
+        });
+        $scope.isPlaying();
     });
+
     $(document).ready(function () {
         $('#hide-1').removeAttr('id');
         $('div#hide-1').removeAttr('id');
