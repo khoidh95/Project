@@ -38,8 +38,7 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js",
-    "test": "mocha"
+    "start": "node app.js"
   },
   "main": "app.js",
   "repository": {

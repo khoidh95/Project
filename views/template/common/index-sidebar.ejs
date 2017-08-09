@@ -15,9 +15,10 @@
         </li>
         <li ng-repeat="f in listFriendOnline" uib-popover-template="'popoFriendOnline'" popover-append-to-body="true" popover-title="{{f.displayName}}" popover-placement="bottom" popover-trigger="'outsideClick'">
             <div class="list-friend-row">
-                <img class="online-icon" src="/images/online.png" width="10px" height="10px">
+                
                 <img src="{{f.picture}}" width="30" height="30">
                 <span>{{f.displayName}}</span>
+                <img class="online-icon" src="/images/online.png" width="8" height="8" >
             </div>
             <script type="text/ng-template" id="popoFriendOnline">
                 <div>
@@ -43,9 +44,10 @@
         </li>
         <li ng-repeat="f in listFriendOffline" uib-popover-template="'popoFriendOffline'" popover-append-to-body="true" popover-title="{{f.displayName}}" popover-placement="bottom" popover-trigger="'outsideClick'">
             <div class="list-friend-row">
-                <img class="online-icon" src="/images/offline.png" width="5" height="5">
+                
                 <img src="{{f.picture}}" width="30" height="30">
                 <span>{{f.displayName}}</span>
+                <img class="online-icon" src="/images/offline.png" width="8" height="8">
             </div>
             <script type="text/ng-template" id="popoFriendOffline">
                 <div>
