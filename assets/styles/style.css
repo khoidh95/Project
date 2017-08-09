@@ -672,7 +672,9 @@ html {
     text-indent: 20px;
     line-height: 40px;
 }
-
+.sidebar-nav li:hover {
+   background-color:#dddfe2;
+}
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
@@ -706,6 +708,10 @@ html {
 }
 .list-friend-row{
   cursor: pointer;
+  display: inline;
+}
+.list-friend-row:hover{
+  background-color:#dddfe2; 
 }
 .relative-inline{
   position: relative;
@@ -1372,11 +1378,11 @@ body {
   }
 
   #page-content-wrapper {
-      position: relative;
+      /*position: relative;*/
   }
 
   #wrapper.toggled #page-content-wrapper {
-      position: relative;
+      /*position: relative;*/
       margin-right: 0;
   }
   .left-container{width:18%;float: left;transition:0.5s;}
@@ -1440,7 +1446,7 @@ body {
 }
 @media (max-width: 768px) {
     .nav > li {
-        position: relative;
+        /*position: relative;*/
         display: inline-block;
     }
 }
@@ -1457,4 +1463,11 @@ body {
 }
 .pt-60{
   padding-top: 60px;
+}
+.online-icon{
+  
+  display: inline;
+  float: right;
+  margin-right: 20px;
+  margin-top: 17px;
 }
