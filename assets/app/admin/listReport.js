@@ -87,7 +87,7 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 					validators:{required: true},
 					cellTemplate:'<div class="form-group div-in-grid  ui-grid-cell-contents" ng-class="(row.entity[col.field].length == 0)?\'invalid\':\'\'">'+
 									'<select class="form-control" ng-model="row.entity[col.field]" disabled>' +
-									'	<option value="kanji">kanji</option>' +
+									'	<option value="kanji">Kanji</option>' +
 									'	<option value="grammar">Grammar</option>' +
 									'	<option value="vocabulary">Vocabulary</option>' +
 									'</select>'+
@@ -118,7 +118,7 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	  			resolves:[{value:'',name:'All'},{value:true,name:'Resolved'},{value:false,name:'not yet resolve'}],
 	  			jlpts:[{value:'',name:'All'},{value:'N1',name:'N1'},{value:'N2',name:'N2'},{value:'N3',name:'N3'},{value:'N4',name:'N4'},{value:'N5',name:'N5'}],
 	  			isTest:'',
-	  			isTests:[{value:'',name:'All'},{value:true,name:'is Test'},{value:false, name:'not Test'}],
+	  			isTests:[{value:'',name:'All'},{value:true,name:'Is Test'},{value:false, name:'Not Test'}],
 	  			type:'',
 	  			types:[{value:'',name:'All'},{value:'kanji',name:'Kanji'},{value:'grammar',name:'Grammar'},{value:'vocabulary',name:'Vocabulary'}],
 	  		}

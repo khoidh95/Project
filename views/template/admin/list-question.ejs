@@ -53,14 +53,14 @@
 		</div>
 		<div class="col-sm-2">
 		 	<div class="input-group">
-				<div class="input-group-addon">Jlpt</div>
+				<div class="input-group-addon">JLPT</div>
 				<select class="form-control" ng-model="reqObj.search.jlpt" ng-options="option.value as option.name for option in reqObj.search.jlpts">
 				</select>
 			</div>
 		</div>
 		<div class="col-sm-2">
 		 	<div class="input-group">
-				<div class="input-group-addon">is Test</div>
+				<div class="input-group-addon">Is Test</div>
 				<select class="form-control" ng-model="reqObj.search.isTest" ng-options="option.value as option.name for option in reqObj.search.isTests">
 				</select>
 			</div>
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="gridStyle" ui-grid="gridOptions" ui-grid-edit ui-grid-cellnav ui-grid-validate>
+	<div class="gridStyle" ui-grid="gridOptions" ui-grid-edit ui-grid-validate>
 		<div class="grid-msg-overlay" ng-show="loading">
           <div class="msg">
             <span>

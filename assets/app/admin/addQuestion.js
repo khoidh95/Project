@@ -19,7 +19,7 @@ var answerPopup = '<div class="div-in-grid ui-grid-cell-contents" ng-class="(row
 				'   <button ng-if="row.entity[col.field].length != 4" class="btn btn-success" ng-click="grid.appScope.addAnswer(row.entity[col.field])">Add a answer</button>'
 				'</script>';
 
-var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.entity[col.field].trim().length == 0)?\'invalid\':\'\'" ng-bind-html="row.entity[col.field]" uib-popover-template="\'content.html\'" popover-append-to-body="true" popover-placement="bottom" popover-trigger="\'outsideClick\'"></div>'+
+var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.entity[col.field].trim().length == 0)?\'invalid\':\'\'" ng-bind-html="row.entity[col.field]" uib-popover-template="\'content.html\'" popover-append-to-body="true" popover-placement="bottom" popover-trigger="\'mouseenter\'"></div>'+
 '<script type="text/ng-template" id="content.html" >' +
 ' 	<span class="font-2em" ng-bind-html="row.entity[col.field]">' +
 '	</span>'
@@ -55,7 +55,6 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
     	}
     	$scope.decoration = function(){
     		$scope.onDecoration = !$scope.onDecoration;
-    		// $scope.ruby = $scope.rubyDown = $scope.rubyUp = $scope.nomalText = '';
     	}
     	$scope.addSpace = function(){
     		$scope.ruby += ' ';
@@ -103,20 +102,20 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 		    columnDefs: [
 		    	{
 					name:"#", displayName: '#', width: 50,enableCellEdit: false,
-					  cellTemplate: '<div class="index-in-grid">{{grid.renderContainers.body.visibleRowCache.indexOf(row)+1}}</div>'
+					cellTemplate: '<div class="index-in-grid">{{grid.renderContainers.body.visibleRowCache.indexOf(row)+1}}</div>'
 				},
 				{
-					name:"content", displayName: 'Content', width: 300,
+					name:"content", displayName: 'Question Content', width: 300,
 					validators:{required: true},
 					cellTemplate: contentPopup
 				},
 				{
-					name:"explain", displayName: 'Explain', width: 300,
+					name:"explain", displayName: 'Question Explain', width: 300,
 					validators:{required: true},
 					cellTemplate: contentPopup
 				},
 				{
-					name:"jlpt", displayName: 'Jlpt', width: 70,
+					name:"jlpt", displayName: 'JLPT', width: 70,
 					enableCellEdit: false,
 					validators:{required: true},
 					cellTemplate:'<div class="form-group div-in-grid  ui-grid-cell-contents" ng-class="(row.entity[col.field].length == 0)?\'invalid\':\'\'">'+
@@ -145,7 +144,7 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 					validators:{required: true},
 					cellTemplate:'<div class="form-group div-in-grid  ui-grid-cell-contents" ng-class="(row.entity[col.field].length == 0)?\'invalid\':\'\'">'+
 									'<select class="form-control" ng-model="row.entity[col.field]">' +
-									'	<option value="kanji">kanji</option>' +
+									'	<option value="kanji">Kanji</option>' +
 									'	<option value="grammar">Grammar</option>' +
 									'	<option value="vocabulary">Vocabulary</option>' +
 									'</select>'+
