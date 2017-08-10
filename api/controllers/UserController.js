@@ -24,7 +24,7 @@ module.exports = {
 				if(users.length != 0){
 					var email = require('querystring').escape(users[0].email);
 					var displayname = require('querystring').escape(users[0].displayName);
-					return res.redirect('/login?register_message=emailexit&email=' + email + '&displayname=' + displayname);
+					return res.redirect('/login?register_message=emailexist&email=' + email + '&displayname=' + displayname);
 				} 
 				User.create(newUser).then(function(user){
 					require('../services/verifyEmail.js').sendVerify(user, function(err){

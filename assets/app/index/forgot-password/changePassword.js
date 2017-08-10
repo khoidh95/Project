@@ -5,7 +5,7 @@ $( document ).ready( function () {
     if($.url().param('register_message')){
         $('.login-panel').hide();
         $('.register-panel').show();
-        if($.url().param('register_message') == 'emailexit'){
+        if($.url().param('register_message') == 'emailexist'){
             $('#email').val($.url().param('email'));
             $('#displayName').val($.url().param('displayname'));
             utils.alert({
