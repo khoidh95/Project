@@ -115,7 +115,7 @@ var mysql = {
 	// WHERE u.id = 1 OR u.id = 2
 	top10Rank: function(){
 		return 'SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score, '+
-				'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank '+
+				'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score and role = "member") AS rank '+
 				'FROM test.user as u WHERE u.role = "member" '+
 				'ORDER BY rank '+
 				'LIMIT 0, 10';
