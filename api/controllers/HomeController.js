@@ -25,6 +25,9 @@ module.exports = {
 	},
 
 	logout: function(req, res) {
+		if(req.session.passport == undefined)
+			res.redirect('/login');
+		else
 		offline.logout(req, function(){
 			req.logout();
 			req.session.passport.role = undefined;

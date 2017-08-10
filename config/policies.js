@@ -29,20 +29,21 @@ module.exports.policies = {
   '*': true,
   'HomeController': {
     'index': 'sessionAuthIndex',
-    'me': 'sessionAuthIndex',
+    'profile': 'sessionAuthIndex',
+    'login': 'sessionAuthIndexLogin',
     'practice': 'sessionAuthIndex',
     'play': 'sessionAuthIndex',
     'test': 'sessionAuthIndex',
     'bookmark': 'sessionAuthIndex',
-    'login': 'sessionAuthIndexLogin',
+    
 
 
 
+    'adminLogin': 'sessionAuthAdminLogin',
     'admin': 'sessionAuthAdmin',
     'addQuestion': 'sessionAuthAdmin',
     'listQuestion': 'sessionAuthAdmin',
     'listReport': 'sessionAuthAdmin',
-    'adminLogin': 'sessionAuthAdminLogin',
   }
   /***************************************************************************
   *                                                                          *
