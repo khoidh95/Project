@@ -493,14 +493,14 @@ $(function () {
                 console.log(res.message)
                 if(res.message == 'have_err'){
                     utils.alert({
-                        title:'Thong bao',
-                        msg: 'Co loi gi do xay ra. Có thể do sự cố mất mạng'
+                        title:'Warning',
+                        msg: 'Somthing just happened. check your connection'
                     });
                     return;
                 }else if(res.message == 'not_enough_question'){
                     utils.alert({
-                        title:'Thong bao',
-                        msg: 'Chung toi khong du cau hoi'
+                        title:'Warning',
+                        msg: 'We dont have enough question bank'
                     });
                     return;
                 }else if(res.message == 'user_is_playing'){
@@ -508,13 +508,13 @@ $(function () {
                     return;
                 }else if(res.message == 'friend_is_playing'){
                     utils.alert({
-                        title:'Thong bao',
+                        title:'Warning',
                         msg: 'Your request playing not success.Your friend is playing other game.'
                     });
                     return;
                 }else if(res.message == 'not_online'){
                     utils.alert({
-                        title:'Thong bao',
+                        title:'Warning',
                         msg: 'Your request playing not success. Your friend not online.'
                     });
                     return;
@@ -573,8 +573,8 @@ $(function () {
         });
         io.socket.on('friend-game-invite-refuse', function (msg) {
             utils.alert({
-                title: 'Thong bao',
-                msg: 'Lời mời chơi của bạn đã bị từ chối'
+                title: 'Warning',
+                msg: 'your invite be refused'
             });
             $('#friend-invite-success-modal').modal('hide');
         });
@@ -605,8 +605,8 @@ $(function () {
                 } else {
                     if (res.data.err == 'is_testing') {
                         utils.confirm({
-                            title: 'Thong bao',
-                            msg: 'Ban chua hoan thanh bai test.Ban co muon quay lai test khong?',
+                            title: 'Warning',
+                            msg: 'You are not finish this test yet.Do you want back to the last test?',
                             okText: 'Go to test',
                             callback: function () {
                                 window.location.href = window.location.origin + '/test';
@@ -665,10 +665,10 @@ $(function () {
         }
         $scope.backToGameNoti = function () {
             utils.confirm({
-                title: 'Thong bao',
-                msg: 'Bạn đang trong trận. Bạn có muốn quay lại game không?',
-                okText: 'Có',
-                cancelText: 'Không',
+                title: 'Warning',
+                msg: 'you are in match. Do you want come back?',
+                okText: 'Yes',
+                cancelText: 'No',
                 callback: function () {
                     window.location.href = window.location.origin + '/play';
                 }
@@ -683,7 +683,7 @@ $(function () {
     });
 
     $(document).ready(function () {
-        $('#hide-1').removeAttr('id');
         $('div#hide-1').removeAttr('id');
+        $('ul#hide-1').removeAttr('id');
     });
 })();

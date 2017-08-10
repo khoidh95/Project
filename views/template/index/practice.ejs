@@ -26,8 +26,8 @@
 				</div>
 			</div>
 			<div ng-if="correctAnswer != undefined">
-				<div ng-if="correctAnswer == answerChoice" class="animated tada solgan-text-2 answer-game-item dung-or-sai dung">Đúng <i class="fa fa-check" aria-hidden="true"></i></div>
-				<div ng-if="correctAnswer != answerChoice" class="answer-game-item dung-or-sai sai">Sai <i class="fa fa-times" aria-hidden="true"></i></div>
+				<div ng-if="correctAnswer == answerChoice" class="animated tada solgan-text-2 answer-game-item dung-or-sai dung">Correct <i class="fa fa-check" aria-hidden="true"></i></div>
+				<div ng-if="correctAnswer != answerChoice" class="answer-game-item dung-or-sai sai">Wrong <i class="fa fa-times" aria-hidden="true"></i></div>
 			</div>
 			<div class="magin-t-20" ng-if="correctAnswer != undefined">
 				<button style = "width:82px;" class="btn btn-success btn-sm pull-right" ng-click="next()">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>

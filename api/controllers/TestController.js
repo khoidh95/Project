@@ -91,7 +91,7 @@ module.exports = {
 						Test.update({id:testId},{status:true}).exec(function(err, test){
 			    			
 			    		})
-					},10000);
+					},1000);
 				}).catch(function(err){});
     		},1800000)
 	    }).catch(function(err){
