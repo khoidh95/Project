@@ -116,7 +116,7 @@ var mysql = {
 	top10Rank: function(){
 		return 'SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score, '+
 				'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score and role = "member") AS rank '+
-				'FROM test.user as u WHERE u.role = "member" '+
+				'FROM test.user as u WHERE u.role = "member" and isActive = true '+
 				'ORDER BY rank '+
 				'LIMIT 0, 10';
 
@@ -154,7 +154,6 @@ var mysql = {
 		return query;
 	}
 }
-
 
 module.exports = mysql
 
