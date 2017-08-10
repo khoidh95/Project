@@ -1329,7 +1329,7 @@ body {
 /*END ADMIN */
 @media (min-width: 992px) {
   #user-profile-section{
-    height: 100%;
+    min-height: 100%;
     padding-top: 100px;
   }
 }
