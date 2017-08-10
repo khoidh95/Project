@@ -403,15 +403,15 @@ $(function () {
         $scope.isWaitingRank = false;
         $scope.codeRank;
         $scope.rankQueue = {};
-        $scope.requestRank = function () {
-            io.socket.post('/game/rank/register', function responseFromServer(body, res) {
-                if (res.body.message == 'success') {
+        $scope.requestRank = function(){
+            io.socket.post('/game/rank/register', function responseFromServer (body, res) {
+                if(res.body.message == 'success'){
                     $scope.isWaitingRank = true;
-                } else if (res.body.message == 'you_are_in_game') {
-                    window.location.href = window.location.origin + '/play';
-                } else if (res.body.message == 'not_enough_question') {
+                }else if(res.body.message == 'you_are_in_game'){
+                    $scope.backToGameNoti();
+                }else if(res.body.message == 'not_enough_question'){
                     utils.alert({
-                        title: 'Thong bao',
+                        title:'Thong bao',
                         msg: 'Chung toi khong du cau hoi.'
                     });
                 }
@@ -488,33 +488,33 @@ $(function () {
             id: undefined
         }
 
-        $scope.playWithFriendRequest = function (friendId) {
-            io.socket.post('/game/playwithfriendrequest', { friendId: $scope.invite.id, jlpt: $scope.invite.jlpt, type: $scope.invite.type }, function (res, jwres) {
+        $scope.playWithFriendRequest= function(friendId){
+            io.socket.post('/game/playwithfriendrequest', {friendId:$scope.invite.id, jlpt:$scope.invite.jlpt, type:$scope.invite.type}, function (res, jwres){
                 console.log(res.message)
-                if (res.message == 'have_err') {
+                if(res.message == 'have_err'){
                     utils.alert({
-                        title: 'Thong bao',
+                        title:'Thong bao',
                         msg: 'Co loi gi do xay ra. Có thể do sự cố mất mạng'
                     });
                     return;
-                } else if (res.message == 'not_enough_question') {
+                }else if(res.message == 'not_enough_question'){
                     utils.alert({
-                        title: 'Thong bao',
+                        title:'Thong bao',
                         msg: 'Chung toi khong du cau hoi'
                     });
                     return;
-                } else if (res.message == 'user_is_playing') {
+                }else if(res.message == 'user_is_playing'){
                     $scope.backToGameNoti();
                     return;
-                } else if (res.message == 'friend_is_playing') {
+                }else if(res.message == 'friend_is_playing'){
                     utils.alert({
-                        title: 'Thong bao',
+                        title:'Thong bao',
                         msg: 'Your request playing not success.Your friend is playing other game.'
                     });
                     return;
-                } else if (res.message == 'not_online') {
+                }else if(res.message == 'not_online'){
                     utils.alert({
-                        title: 'Thong bao',
+                        title:'Thong bao',
                         msg: 'Your request playing not success. Your friend not online.'
                     });
                     return;
