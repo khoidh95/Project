@@ -77,7 +77,6 @@ module.exports = {
       via:'user_two'
     },
 
-
     game_user_one: {
       collection: 'game',
       via:'user_one'
@@ -97,12 +96,14 @@ module.exports = {
     },
     bookmark_questions:{
       collection: 'question',
-      via:'bookmark_users'
+      via:'userId',
+      through:'bookmark'
     },
 
     reports:{
-      collection:'report',
-      via:'userId'
+      collection:'question',
+      via:'userId',
+      through:'report'
     }
   },
   beforeCreate: function(user, next) {

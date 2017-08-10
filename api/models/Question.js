@@ -36,19 +36,23 @@ module.exports = {
     },
     games:{
       collection: 'game',
-      via:'questions'
+      via:'questionId',
+      through:'gamedetail'
     },
     tests:{
       collection: 'test',
-      via:'questions'
+      via:'questionId',
+      through:'testdetail'
     },
     bookmark_users:{
       collection: 'user',
-      via:'bookmark_questions'
+      via:'questionId',
+      through:'bookmark'
     },
     reports:{
-      collection:'report',
-      via:'questionId'
+      collection:'user',
+      via:'questionId',
+      through:'report'
     }
   }
 };

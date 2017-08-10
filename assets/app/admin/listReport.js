@@ -19,7 +19,7 @@ var answerPopup = '<div class="div-in-grid ui-grid-cell-contents" ng-class="(row
 				'   <button ng-if="row.entity[col.field].length != 4" class="btn btn-success" ng-click="grid.appScope.addAnswer(row.entity[col.field])">Add a answer</button>'
 				'</script>';
 
-var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.entity[col.field].trim().length == 0)?\'invalid\':\'\'" ng-bind-html="row.entity[col.field]" uib-popover-template="\'content.html\'" popover-append-to-body="true" popover-placement="bottom" popover-trigger="\'outsideClick\'"></div>'+
+var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.entity[col.field].trim().length == 0)?\'invalid\':\'\'" ng-bind-html="row.entity[col.field]" uib-popover-template="\'content.html\'" popover-append-to-body="true" popover-placement="bottom" popover-trigger="\'mouseenter\'"></div>'+
 '<script type="text/ng-template" id="content.html" >' +
 ' 	<span class="font-2em" ng-bind-html="row.entity[col.field]">' +
 '	</span>'

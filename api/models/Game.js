@@ -25,7 +25,8 @@ module.exports = {
     },
   	questions:{
       collection: 'question',
-      via:'games'
+      via:'gameId',
+      through:'gamedetail'
     },
     user_one:{
       model:'user'
