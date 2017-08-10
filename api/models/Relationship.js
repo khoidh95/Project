@@ -17,12 +17,7 @@ module.exports = {
   	status: {
   		type: 'integer',
       required: true,
-      enum: [1,2,3] //1:neu ng gui la user_one, 2 neu nguoi gui la user_two, 3 la da ket ban
-  	},
-  	seem:{
-  		type: 'boolean',
-      required: true,
-  		defaultsTo: false
+      enum: [1,2,3]
   	}
   }
 };

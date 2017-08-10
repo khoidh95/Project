@@ -16,18 +16,17 @@ module.exports = {
   	content:{
   		type:'text',
   		defaultsTo: ''
-  	},
-  	resolve:{
-  		type:'boolean',
-  		defaultsTo: false
-  	},
+  	},	
   	questionId:{
   		model:'question'
   	},
   	userId:{
   		model:'user'
   	},
-
+	resolve:{
+  		type:'boolean',
+  		defaultsTo: false
+  	}
   }
 };
 

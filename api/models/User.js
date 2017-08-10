@@ -46,23 +46,27 @@ module.exports = {
       type: 'integer',
       defaultsTo:0
     },
-    isActive:{
-      type:'boolean',
-      defaultsTo: false,
-    },
-  	jlpt: {
+
+    jlpt: {
   		model: 'jlpt',
       defaultsTo:'None'
-  	},
+    },
+    
     picture:{
       type: 'string'
     },
+
     role:{
       type: 'string',
       enum: ['admin', 'member'],
       defaultsTo: 'member'
     },
 
+    isActive:{
+      type:'boolean',
+      defaultsTo: false,
+    },
+  	
     relationship_user_one: {
       collection: 'relationship',
       via:'user_one'

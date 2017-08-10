@@ -22,14 +22,14 @@ module.exports = {
   	},
   	jlpt:{
   		model:'jlpt'
-  	},
-  	isTest:{
-  		type: 'boolean'
-  	},
+    },
     type:{
       type: 'string',
       enum: ['kanji', 'grammar', 'vocabulary'],
     },
+  	isTest:{
+  		type: 'boolean'
+  	},  
     answer:{
       collection: 'answer',
       via:'questionId'
