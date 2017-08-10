@@ -19,6 +19,7 @@ module.exports = {
 		User.findOne({id: friendId}).exec(function(err, friend){
 			if(err) return res.json({message:'have_err'});
 			if(!friend) return res.json({message:'have_err'});
+			if(friend.isActive == false) return res.json({message:'have_err'});
 			if(friend.role == 'admin') return res.json({message:'have_err'});
 			// USER_ONE id phai nho hown id cua USER_TWO
 			var user_one = userId < friendId ? userId : friendId;
@@ -58,6 +59,7 @@ module.exports = {
 		User.findOne({id:friendId}).exec(function(err, friend){
 			if(err) return res.json({message:'have_error'});
 			if(!friend) return res.json({message:'user_not_found'});
+			if(friend.isActive == false) return res.json({message:'user_not_found'});
 			if(friend.role == 'admin') return res.json({message:'user_not_found'});
 			if(friend.id == req.session.passport.user) return res.json({message:'user_not_found'});
 			var relation_user_one = req.session.passport.user < friend.id?req.session.passport.user:friend.id;

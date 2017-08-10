@@ -74,8 +74,8 @@ var mysql = {
 	
 	myProfile: function(myId){
 		var query = 'SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score,  ' +
-					'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank  ' +
-					'FROM test.user as u  ' +
+					'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score and role = "member") AS rank  ' +
+					'FROM test.user as u ' +
 					'WHERE u.id = ' + myId;
 		return query;
 	},

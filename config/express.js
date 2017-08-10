@@ -21,7 +21,8 @@ var facebookHandle = function(token, tokenSecret, profile, done) {
 				var data = {
 					fid: profile.id,
 					displayName: profile.name.familyName + ' '+ profile.name.givenName,
-					picture: profile.photos[0].value
+					picture: profile.photos[0].value,
+					isActive:true
 				};
 				User.create(data, function(err, user){
 					return done(err, user);
@@ -55,7 +56,8 @@ var googleHandle = function(token, tokenSecret, profile, done) {
 				var data = {
 					gid: profile.id,
 					displayName: displayName,
-					picture: pictureUrl
+					picture: pictureUrl,
+					isActive:true
 				};
 				User.create(data, function(err, user){
 					return done(err, user);
