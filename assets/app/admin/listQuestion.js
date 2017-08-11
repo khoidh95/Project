@@ -7,7 +7,7 @@ var answerPopup = '<div class="div-in-grid ui-grid-cell-contents" ng-class="(row
 				'			<div class="input-group-addon">' +
 				'				<div class="checkbox check-correct-answer">' +
 				'				    <label>' +
-				'				        <input type="checkbox" ng-model="an.isTrue">' +
+				'				        <input type="checkbox" ng-model="an.isCorrect">' +
 				'				        <span class="cr"><i class="cr-icon fa fa-check"></i></span>' +
 				'				    </label>' +
 				'				</div>' +
@@ -199,7 +199,7 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-click="\'grid.ap
 	  	$scope.addAnswer = function(ans){
 	  		ans.push({
 		  			content:'',
-		  			isTrue:false
+		  			isCorrect:false
 	  		});
 	  	}
 	  	$scope.removeAnswer = function(ans, i){
@@ -258,7 +258,7 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-click="\'grid.ap
                 });
                 return;
 			}
-			var flagIsTrue = 0;
+			var flagisCorrect = 0;
 	  		for(var i = 0; i < row.answer.length; i++){
 	  			var ans = row.answer;
   				if(ans[i].content.trim().length==0){
@@ -268,16 +268,16 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-click="\'grid.ap
                     });
                     return;
   				}
-				if(row.answer[i].isTrue) flagIsTrue++;
+				if(row.answer[i].isCorrect) flagisCorrect++;
 			}
-			if(flagIsTrue == 0) {
+			if(flagisCorrect == 0) {
 				utils.alert({
                     title:'Thông báo',
                     msg: 'Update câu hỏi không thành công.Bản ghi ID ' + row.id + ' câu trả lời phải có 1 đáp án đúng'
                 });
                 return;
 			}
-			if(flagIsTrue > 1) {
+			if(flagisCorrect > 1) {
 	  				var x = i + 1;
 	  				utils.alert({
                         title:'Thông báo',

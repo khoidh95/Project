@@ -9,7 +9,7 @@ var mysql = {
 		return query;
 	},
 	listFriendOnline: function(list) {
-		var head= 'SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score,  ' +
+		var head= 'SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score,  ' +
 					'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank  ' +
 					'FROM test.user as u , test.online as o  ' +
 					'WHERE u.id = o.userId ' +
@@ -24,7 +24,7 @@ var mysql = {
 		var query = head + center + tails;
 		return query;
 	},
-	// SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score, 
+	// SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score, 
 	// (SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank 
 	// FROM test.user as u , test.online as o 
 	// WHERE u.id = o.userId
@@ -32,7 +32,7 @@ var mysql = {
 	// GROUP BY o.userId
 
 	listFriendOffline: function(list) {
-		var head= 'SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score,  ' +
+		var head= 'SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score,  ' +
 					'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank  ' +
 					'FROM test.user as u  ' +
 					'LEFT JOIN test.online as o ' +
@@ -48,7 +48,7 @@ var mysql = {
 		var query = head + center + tails;
 		return query;
 	},
-	// SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score, 
+	// SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score, 
 	// (SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank 
 	// FROM test.user as u 
 	// LEFT JOIN test.online as o
@@ -73,13 +73,13 @@ var mysql = {
 	// WHERE o.userId = 1 or o.userId =3
 	
 	myProfile: function(myId){
-		var query = 'SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score,  ' +
+		var query = 'SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score,  ' +
 					'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score and role = "member") AS rank  ' +
 					'FROM test.user as u ' +
 					'WHERE u.id = ' + myId;
 		return query;
 	},
-	// SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score, 
+	// SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score, 
 	// (SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank 
 	// FROM test.user as u 
 	// WHERE u.id = 1
@@ -97,7 +97,7 @@ var mysql = {
 	// AND ((r.status = 2 AND r.user_one = 2) OR (r.status =1 AND r.user_two = 2))
 
 	listUserInfo: function(list) {
-		var head= 'SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score, ' +
+		var head= 'SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score, ' +
 					'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank ' +
 					'FROM test.user as u ' +
 					'WHERE ';
@@ -109,12 +109,12 @@ var mysql = {
 		var query = head + center;
 		return query;
 	},
-	// SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score, 
+	// SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score, 
 	// (SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank 
 	// FROM test.user as u 
 	// WHERE u.id = 1 OR u.id = 2
 	top10Rank: function(){
-		return 'SELECT u.id, u.displayName, u.jlpt, u.level, u.picture, u.score, '+
+		return 'SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score, '+
 				'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score and role = "member" and isActive = true) AS rank '+
 				'FROM test.user as u WHERE u.role = "member" and isActive = true '+
 				'ORDER BY rank '+

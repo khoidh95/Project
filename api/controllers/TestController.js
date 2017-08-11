@@ -131,7 +131,7 @@ module.exports = {
 	    					if(err) return reject(err);
 	    					if(!ques) return reject('question_not_found');
 	    					for(var i = 0; i < ques.answer.length; i++){
-								delete ques.answer[i].isTrue;
+								delete ques.answer[i].isCorrect;
 							}
 							questions.push({
 								id:ques.id,
@@ -195,7 +195,7 @@ module.exports = {
 	    		delete req.session.passport.test;
 	    		function chamdiemDequy(arr){
 	    			if(arr.length == 0) return fullfill(mark);
-	    			Answer.findOne({questionId:arr[0].q, id:arr[0].a, isTrue:true}).exec(function(err, ans){
+	    			Answer.findOne({questionId:arr[0].q, id:arr[0].a, isCorrect:true}).exec(function(err, ans){
 	    				if(ans) mark++;
 	    				arr.shift();
 	    				chamdiemDequy(arr);

@@ -27,7 +27,7 @@ module.exports = {
 							ans.push({
 								questionId: question.id,
 								content: d[0].answer[i].content,
-								isTrue: d[0].answer[i].isTrue
+								isCorrect: d[0].answer[i].isCorrect
 							})
 						}
 						Answer.create(ans).exec(function (err, answers) {
@@ -106,7 +106,7 @@ module.exports = {
 				listAnswerInsert.push({
 					questionId: question.id,
 					content: answer[i].content,
-					isTrue: answer[i].isTrue
+					isCorrect: answer[i].isCorrect
 				});
 			} else {
 				//day nay k chua nhung thang xoa ma chi chua update
@@ -153,7 +153,7 @@ module.exports = {
 				function updateAnswerDeQuy(arr) {
 					Answer.update({ id: arr[0].id }, {
 						content: arr[0].content,
-						isTrue: arr[0].isTrue
+						isCorrect: arr[0].isCorrect
 					}).exec(function (err) {
 						if (err) return reject(err);
 						arr.shift();
@@ -234,7 +234,7 @@ module.exports = {
 			if (ques.length == 0) return res.json({ message: 'not_enough_question' });
 			var randomRecord = ques[Math.floor(Math.random() * ques.length)];
 			for (i = 0; i < randomRecord.answer.length; i++) {
-				randomRecord.answer[i].isTrue = undefined;
+				randomRecord.answer[i].isCorrect = undefined;
 			}
 			res.json({ message: 'success', question: randomRecord });
 		})
@@ -243,7 +243,7 @@ module.exports = {
 		if (!require('../services/checkSession.js')(req)) return res.json({ message: 'have_err' });
 		Answer.findOne({
 			questionId: req.body.questionId,
-			isTrue: true
+			isCorrect: true
 		}).exec(function (err, ans) {
 			if (err) res.json({ message: 'have_err', err: err });
 			if (!ans) res.json({ message: 'have_err', err: err });

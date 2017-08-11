@@ -16,14 +16,14 @@
         <li ng-repeat="f in listFriendOnline" uib-popover-template="'popoFriendOnline'" popover-append-to-body="true" popover-title="{{f.displayName}}" popover-placement="bottom" popover-trigger="'outsideClick'">
             <div class="list-friend-row">
                 
-                <img src="{{f.picture}}" width="30" height="30">
+                <img src="{{f.avatar}}" width="30" height="30">
                 <span>{{f.displayName}}</span>
                 <img class="online-icon" src="/images/online.png" width="8" height="8" >
             </div>
             <script type="text/ng-template" id="popoFriendOnline">
                 <div>
                     <span class="relative-inline">
-                        <img src="{{f.picture}}" width="50" height="50" />
+                        <img src="{{f.avatar}}" width="50" height="50" />
                         <span class="label label-success absolute-left-bottom-opa">Online</span>
                     </span>
                     <span>
@@ -45,7 +45,7 @@
         <li ng-repeat="f in listFriendOffline" uib-popover-template="'popoFriendOffline'" popover-append-to-body="true" popover-title="{{f.displayName}}" popover-placement="bottom" popover-trigger="'outsideClick'">
             <div class="list-friend-row">
                 
-                <img src="{{f.picture}}" width="30" height="30">
+                <img src="{{f.avatar}}" width="30" height="30">
                 <span>{{f.displayName}}</span>
                 <img class="online-icon" src="/images/offline.png" width="8" height="8">
             </div>
@@ -53,7 +53,7 @@
                 <div>
                     <span class="relative-inline">
                         <span class="label label-default absolute-left-bottom-opa">Offline</span>
-                        <img src="{{f.picture}}" width="50" height="50" />
+                        <img src="{{f.avatar}}" width="50" height="50" />
                     </span>
                     <span>
                         <img src="/images/level.png" width="24" height="24"> {{f.level}}
@@ -88,7 +88,7 @@
                 <div id="friend-search-result" class="row" style="display: none">
                     <hr>
                     <div class="col-xs-5">
-                        <img id="friend-search-result-picture" src="" class="img-responsive">
+                        <img id="friend-search-result-avatar" src="" class="img-responsive">
                     </div>
                     <div class="col-xs-7">
                         <div><strong id="friend-search-result-displayName"></strong></div>

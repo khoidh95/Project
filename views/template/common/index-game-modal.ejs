@@ -47,7 +47,7 @@
 	            	<div class="row row-eq-height">
 	            		<div class="col-xs-5">
 	            			<h4 class="text-center">{{rankQueue.me.displayName}}</h4>
-	            			<div><img src="{{rankQueue.me.picture}}" class="img-responsive"></div>
+	            			<div><img src="{{rankQueue.me.avatar}}" class="img-responsive"></div>
 	            			<div>
 		                    	<span>
 			                        <img src="/images/level.png" width="24" height="24"> {{rankQueue.me.level}}
@@ -65,7 +65,7 @@
 	            		</div>
 	            		<div class="col-xs-5">
 	            			<h4>{{rankQueue.compatitor.displayName}}</h4>
-	            			<div><img src="{{rankQueue.compatitor.picture}}" class="img-responsive"></div>
+	            			<div><img src="{{rankQueue.compatitor.avatar}}" class="img-responsive"></div>
 	            			<div>
 		                    	<span>
 			                        <img src="/images/level.png" width="24" height="24"> {{rankQueue.compatitor.level}}
@@ -102,7 +102,7 @@
 	            				<div ng-repeat="f in listFriendOnline" class="friend-invite-game">
 		            				<div class="row">
 		            					<div class="col-xs-4 col-sm-5 relative-inline">
-		            						<img src="{{f.picture}}" class="img-responsive" />
+		            						<img src="{{f.avatar}}" class="img-responsive" />
 				                        	<span class="label label-success absolute-left-bottom-opa left-15">Online</span>
 		            					</div>
 				                        <div class="col-xs-8 col-sm-7">
@@ -137,7 +137,7 @@
     							<table class="table table-condensed table-td-h100px">
 									<tr ng-repeat="h in history_friend.data">
 										<td>
-											<img src="{{h.me.picture}}" width="50">
+											<img src="{{h.me.avatar}}" width="50">
 											<div>{{h.me.displayName}}</div>
 										</td>
 										<td>
@@ -162,7 +162,7 @@
 					            			<div class="text-center text-bold">{{h.compatitor.score}}</div>
 										</td>
 										<td>
-											<img src="{{h.compatitor.picture}}" width="50">
+											<img src="{{h.compatitor.avatar}}" width="50">
 											<div>{{h.compatitor.displayName}}</div>
 										</td>
 									</tr>
@@ -236,7 +236,7 @@
 			            					<div ng-if="t.rank == 9"><img src="/images/cup9.png" width="60" height="60"></div>
 			            					<div ng-if="t.rank == 10"><img src="/images/cup10.png" width="60" height="60"></div>
 			            				</td>
-			            				<td><img src="{{t.picture}}" width="50" height="50"></td>
+			            				<td><img src="{{t.avatar}}" width="50" height="50"></td>
 			            				<td>
 			            					<div>{{t.displayName}}</div>
 			            					<div>
@@ -258,7 +258,7 @@
     							<table class="table table-condensed table-td-h100px">
 									<tr ng-repeat="h in history_rank.data">
 										<td>
-											<img src="{{h.me.picture}}" width="50">
+											<img src="{{h.me.avatar}}" width="50">
 											<div>{{h.me.displayName}}</div>
 										</td>
 										<td>
@@ -283,7 +283,7 @@
 					            			<div class="text-center text-bold">{{h.compatitor.score}}</div>
 										</td>
 										<td>
-											<img src="{{h.compatitor.picture}}" width="50">
+											<img src="{{h.compatitor.avatar}}" width="50">
 											<div>{{h.compatitor.displayName}}</div>
 										</td>
 									</tr>

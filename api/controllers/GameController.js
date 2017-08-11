@@ -335,7 +335,7 @@ module.exports = {
     			var gameInterval = setInterval(function(){
     				if(counter == 0){
     					if(skip == 15){
-				    		Answer.findOne({questionId:preQuesId, isTrue: true}).exec(function(err, correct){
+				    		Answer.findOne({questionId:preQuesId, isCorrect: true}).exec(function(err, correct){
 					    		Game.update({id:gameId},{currentQuestion:null}).exec(function(err,update){});
 					    		GetAllQuestionAndAnswer().then(function(reviewQuestion){
 					    			Game.findOne({select: ['id','user_one','user_two','user_one_score', 'user_two_score'], where: {id:game.id} }).exec(function(err, g){
@@ -401,7 +401,7 @@ module.exports = {
 			    			});
 				    	}else{
 				    		GameInfo().then(function(game){
-				    			Answer.findOne({questionId:preQuesId, isTrue: true}).exec(function(err, correct){
+				    			Answer.findOne({questionId:preQuesId, isCorrect: true}).exec(function(err, correct){
 				    				sails.sockets.broadcast('play-' + id1, 'receiveQuestion',
 										{question: game.questions[0], answer: game.questions[0].answer, me_score:game.user_one_score,
 										compatitor_score:game.user_two_score, correct:correct});
@@ -449,7 +449,7 @@ module.exports = {
 				return;
 			}
 			sails.config.globals._1vs1['room' + game.id].users.push(req.session.passport.user);
-			Answer.findOne({questionId: game.currentQuestion,isTrue:true,id:req.body.answerId}).exec(function(err, ans){
+			Answer.findOne({questionId: game.currentQuestion,isCorrect:true,id:req.body.answerId}).exec(function(err, ans){
 				if(err) return res.json({message:'have_err'});
 
 				var curQuesRoom = sails.config.globals._1vs1['room' + game.id].game.length - 1;
@@ -795,13 +795,13 @@ module.exports = {
 	    			history.push({
 	    				me:{
 	    					id:games[i].user_one.id,
-	    					picture:games[i].user_one.picture,
+	    					avatar:games[i].user_one.avatar,
 	    					displayName:games[i].user_one.displayName,
 	    					score:games[i].user_one_score
 	    				},
 	    				compatitor:{
 	    					id:games[i].user_two.id,
-	    					picture:games[i].user_two.picture,
+	    					avatar:games[i].user_two.avatar,
 	    					displayName:games[i].user_two.displayName,
 	    					score:games[i].user_two_score
 	    				},
@@ -810,13 +810,13 @@ module.exports = {
 	    			history.push({
 	    				me:{
 	    					id:games[i].user_two.id,
-	    					picture:games[i].user_two.picture,
+	    					avatar:games[i].user_two.avatar,
 	    					displayName:games[i].user_two.displayName,
 	    					score:games[i].user_two_score
 	    				},
 	    				compatitor:{
 	    					id:games[i].user_one.id,
-	    					picture:games[i].user_one.picture,
+	    					avatar:games[i].user_one.avatar,
 	    					displayName:games[i].user_one.displayName,
 	    					score:games[i].user_one_score
 	    				}

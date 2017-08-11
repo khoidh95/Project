@@ -83,7 +83,7 @@
 	    var img=document.getElementById("img-in-modal");
 	    ctx.drawImage(img,dataImg.x,dataImg.y,dataImg.width,dataImg.height,0,0,320,320);
 	    var imageData = c.toDataURL('image/png', 1.0);
-	    var fileName = 'picture.jpg';
+	    var fileName = 'avatar.jpg';
 	    $.post("/user/editProfile",
 		    {
 		        fileName: fileName,
@@ -105,7 +105,7 @@
 		                        title:'Thong bao',
 		                        msg: 'Update avatar thanh cong',
 		                        callback: function(){
-									$('.avatar-image-root').attr("src",data.picture + '?' + new Date().getTime());
+									$('.avatar-image-root').attr("src",data.avatar + '?' + new Date().getTime());
 		                        }
 		                    })
 	                	},500);

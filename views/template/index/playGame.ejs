@@ -25,7 +25,7 @@
 						 style="position: absolute;left:0">
 							<img src="/images/correct.png" width="100" height="100" class="fa-spin">
 						</div>
-						<div><img src="<%= user.picture%>" class="img-circle img-responsive"></div>
+						<div><img src="<%= user.avatar%>" class="img-circle img-responsive"></div>
 						<div class="text-center _0_7em">
 							<%= user.displayName%>
 						</div>
@@ -50,7 +50,7 @@
 						 style="position: absolute;right:0">
 							<img src="/images/correct.png" width="100" height="100" class="fa-spin">
 						</div>
-						<div><img src="<%= compatitor.picture%>" class="img-circle img-responsive"></div>
+						<div><img src="<%= compatitor.avatar%>" class="img-circle img-responsive"></div>
 						<div class="text-center _0_7em">
 							<%= compatitor.displayName%>
 						</div>
@@ -85,7 +85,7 @@
 										DRAW
 									</div>
 								</div>
-								<img src="<%= user.picture%>" class="img-responsive img-circle">
+								<img src="<%= user.avatar%>" class="img-responsive img-circle">
 								<div class="_2em text-center">
 									<%= user.displayName%>
 								</div>
@@ -110,7 +110,7 @@
 										DRAW
 									</div>
 								</div>
-								<img src="<%= compatitor.picture%>" class="img-responsive img-circle">
+								<img src="<%= compatitor.avatar%>" class="img-responsive img-circle">
 								<div class="_2em text-center">
 									<%= compatitor.displayName%>
 								</div>
@@ -160,7 +160,7 @@
 								<div ng-repeat="a in q.answer" class="col-xs-12 col-sm-6">
 									<div class="answer-game-item no-radius" ng-class="{'answer-one':($index == 0),'answer-two':($index == 1),'answer-three':($index == 2),'answer-four':($index == 3)}">
 										{{a.content}}
-										<i class="fa fa-2x pull-right" ng-class="{'fa-times':(a.myChoice && !a.isTrue),'fa-check':(a.isTrue)}"></i>
+										<i class="fa fa-2x pull-right" ng-class="{'fa-times':(a.myChoice && !a.isCorrect),'fa-check':(a.isCorrect)}"></i>
 									</div>
 								</div>
 							</div>
@@ -339,7 +339,7 @@
 									}
 									if (question[j].answer[k].id == game[i][$scope.me]) {
 										question[j].answer[k].myChoice = true;
-										if (question[j].answer[k].isTrue) {
+										if (question[j].answer[k].isCorrect) {
 											question[j].option = 'Correct';
 										} else {
 											question[j].option = 'Incorrect';

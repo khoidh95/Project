@@ -138,7 +138,7 @@ var utils = {};
 		content +=		'	</button> ';
 		content +=		'	<div class="row"> ';
 		content +=		'		<div class="col-xs-4"> ';
-		content +=		'			<img src="' + options.picture + '" class="img-responsive"> ';
+		content +=		'			<img src="' + options.avatar + '" class="img-responsive"> ';
 		content +=		'		</div> ';
 		content +=		'		<div class="col-xs-8" class="em-x1_5"> ';
 		content +=		'			<strong>' + options.displayName + ' </strong> send a friend request! ';

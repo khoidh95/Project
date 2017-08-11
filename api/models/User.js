@@ -52,7 +52,7 @@ module.exports = {
       defaultsTo:'None'
     },
     
-    picture:{
+    avatar:{
       type: 'string'
     },
 

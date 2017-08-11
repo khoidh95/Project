@@ -7,7 +7,7 @@ var answerPopup = '<div class="div-in-grid ui-grid-cell-contents" ng-class="(row
 				'			<div class="input-group-addon">' +
 				'				<div class="checkbox check-correct-answer">' +
 				'				    <label>' +
-				'				        <input type="checkbox" ng-model="an.isTrue" disabled>' +
+				'				        <input type="checkbox" ng-model="an.isCorrect" disabled>' +
 				'				        <span class="cr"><i class="cr-icon fa fa-check"></i></span>' +
 				'				    </label>' +
 				'				</div>' +

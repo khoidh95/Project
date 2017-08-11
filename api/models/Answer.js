@@ -19,7 +19,7 @@ module.exports = {
   	content:{
   		type:'string'
   	},
-  	isTrue:{
+  	isCorrect:{
   		type:'boolean'
   	}
   }

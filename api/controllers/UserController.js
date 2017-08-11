@@ -16,7 +16,7 @@ module.exports = {
 				email: req.body.email.trim(),
 				displayName: req.body.displayName.trim(),
 				password: req.body.password.trim(),
-				picture:'/images/avatar-default.png'
+				avatar:'/images/avatar-default.png'
 			};
 			User.find({
 				email: req.body.email.trim()
@@ -180,17 +180,17 @@ module.exports = {
 			    }
 			}
 			myMkdirSync(folderPicuture);
-			fs.writeFile(folderPicuture + '/picture.png', req.body.imageData.replace(/^data:image\/png;base64,/, ""), 'base64', function(err) {
+			fs.writeFile(folderPicuture + '/avatar.png', req.body.imageData.replace(/^data:image\/png;base64,/, ""), 'base64', function(err) {
 		        if(err){
 		        	res.json({message:'have_error', err:err});
 		        }
 		        else{
-		        	var picture = '/Attachment/' + req.session.passport.user + '/picture.png';
+		        	var avatar = '/Attachment/' + req.session.passport.user + '/avatar.png';
 		        	User.update({id:req.session.passport.user},{
-		        		picture:picture
+		        		avatar:avatar
 		        	},function(err, user){
 		        		if(err) return res.json({message:'have_error'});
-		            	return res.json({message:'success', picture:picture} );
+		            	return res.json({message:'success', avatar:avatar} );
 		        	})
 		        }
 		    });

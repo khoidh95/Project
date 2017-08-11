@@ -20,7 +20,7 @@ module.exports.bootstrap = function(cb) {
 	var createAdminDefault = function(){
     	return new Promise(function(fullfill, reject){
     		User.findOrCreate({email:'yugenvn@gmail.com'}
-			,{email:'yugenvn@gmail.com', isActive:true, displayName:'Yugen Admin', password:'abc123', role:'admin', picture:'/images/avatar-default.png'})
+			,{email:'yugenvn@gmail.com', isActive:true, displayName:'Yugen Admin', password:'abc123', role:'admin', avatar:'/images/avatar-default.png'})
 			.exec(function(err, user){
 				return fullfill();
 			});

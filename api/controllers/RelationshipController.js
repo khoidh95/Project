@@ -69,16 +69,16 @@ module.exports = {
 
 			Relationship.findOne({user_one: relation_user_one, user_two: relation_user_two}).exec(function(err, rela){
 				if(err)  return res.json({message:"have_error"});
-				if(!rela) return res.json({message:'success', user:{id:friend.id, displayName: friend.displayName, picture: friend.picture, status:0}});
+				if(!rela) return res.json({message:'success', user:{id:friend.id, displayName: friend.displayName, avatar: friend.avatar, status:0}});
 				switch(rela.status) {
                     case 1:
-                		return res.json({message:'success', user:{id:friend.id, displayName: friend.displayName, picture: friend.picture, status:1, userIs:userIs}});
+                		return res.json({message:'success', user:{id:friend.id, displayName: friend.displayName, avatar: friend.avatar, status:1, userIs:userIs}});
                         break;
                     case 2:
-                    	return res.json({message:'success', user:{id:friend.id, displayName: friend.displayName, picture: friend.picture, status:2, userIs:userIs}});
+                    	return res.json({message:'success', user:{id:friend.id, displayName: friend.displayName, avatar: friend.avatar, status:2, userIs:userIs}});
                         break;
                     case 3:
-                    return res.json({message:'success', user:{id:friend.id, displayName: friend.displayName, picture: friend.picture, status:3}});
+                    return res.json({message:'success', user:{id:friend.id, displayName: friend.displayName, avatar: friend.avatar, status:3}});
                         break;
                 }
 			});

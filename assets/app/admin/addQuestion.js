@@ -7,7 +7,7 @@ var answerPopup = '<div class="div-in-grid ui-grid-cell-contents" ng-class="(row
 				'			<div class="input-group-addon">' +
 				'				<div class="checkbox check-correct-answer">' +
 				'				    <label>' +
-				'				        <input type="checkbox" ng-model="an.isTrue">' +
+				'				        <input type="checkbox" ng-model="an.isCorrect">' +
 				'				        <span class="cr"><i class="cr-icon fa fa-check"></i></span>' +
 				'				    </label>' +
 				'				</div>' +
@@ -188,7 +188,7 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	  	$scope.addAnswer = function(ans){
 	  		ans.push({
 		  			content:'',
-		  			isTrue:false
+		  			isCorrect:false
 	  		});
 	  	}
 	  	$scope.removeAnswer = function(ans, i){
@@ -214,7 +214,7 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
                     });
                     return;
 	  			}
-	  			var isTrueAnswerFlag = 0;
+	  			var isCorrectAnswerFlag = 0;
 	  			for(var j = 0 ; j < data.answer.length; j++){
 	  				var ans = data.answer;
 	  				if(ans[j].content.trim().length==0){
@@ -225,11 +225,11 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	                    });
 	                    return;
 	  				}
-	  				if(ans[j].isTrue){
-	  					isTrueAnswerFlag++;
+	  				if(ans[j].isCorrect){
+	  					isCorrectAnswerFlag++;
 	  				} 
 	  			}
-	  			if(isTrueAnswerFlag == 0) {
+	  			if(isCorrectAnswerFlag == 0) {
 	  				var x = i + 1;
 	  				utils.alert({
                         title:'Thông báo',
@@ -237,7 +237,7 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
                     });
                     return;
   				}
-  				if(isTrueAnswerFlag > 1) {
+  				if(isCorrectAnswerFlag > 1) {
 	  				var x = i + 1;
 	  				utils.alert({
                         title:'Thông báo',

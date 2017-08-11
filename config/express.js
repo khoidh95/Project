@@ -12,7 +12,7 @@ var facebookHandle = function(token, tokenSecret, profile, done) {
 				User.update({id : user.id},{
 					fid: profile.id,
 					// displayName: profile.name.familyName + ' '+ profile.name.givenName,
-					// picture: profile.photos[0].value
+					// avatar: profile.photos[0].value
 				}).exec(function afterwards(err, updated){
 					return done(null, user);
 				});
@@ -21,7 +21,7 @@ var facebookHandle = function(token, tokenSecret, profile, done) {
 				var data = {
 					fid: profile.id,
 					displayName: profile.name.familyName + ' '+ profile.name.givenName,
-					picture: profile.photos[0].value,
+					avatar: profile.photos[0].value,
 					isActive:true
 				};
 				User.create(data, function(err, user){
@@ -33,7 +33,7 @@ var facebookHandle = function(token, tokenSecret, profile, done) {
 }
 var googleHandle = function(token, tokenSecret, profile, done) {
 	process.nextTick(function(){
-		var pictureUrl = profile.photos[0].value.split('?')[0] + '?sz=320';
+		var photoUrl = profile.photos[0].value.split('?')[0] + '?sz=320';
 		var displayName = 'User' + profile.id;
 		if(profile.displayName){
 			displayName = profile.displayName;
@@ -47,7 +47,7 @@ var googleHandle = function(token, tokenSecret, profile, done) {
 				User.update({id : user.id},{
 					gid: profile.id,
 					// displayName: profile.displayName,
-					// picture: pictureUrl
+					// avatar: photoUrl
 				}).exec(function afterwards(err, updated){
 					return done(null, user);
 				});
@@ -56,7 +56,7 @@ var googleHandle = function(token, tokenSecret, profile, done) {
 				var data = {
 					gid: profile.id,
 					displayName: displayName,
-					picture: pictureUrl,
+					avatar: photoUrl,
 					isActive:true
 				};
 				User.create(data, function(err, user){

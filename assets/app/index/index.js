@@ -41,7 +41,7 @@ $(function () {
                     $('#friend-search-result-notfound').hide();
                     $('#friend-search-result').show();
                     $('#friend-search-result-displayName').html(data.user.displayName);
-                    $('#friend-search-result-picture').attr('src', data.user.picture);
+                    $('#friend-search-result-avatar').attr('src', data.user.avatar);
                     friendIdSearch = data.user.id;
                     if (data.user.status == 0) {
                         $('#search-addFriend-btn').show();
@@ -268,7 +268,7 @@ $(function () {
             $scope.listFriendRequest.unshift(data);
             $scope.$apply();
             utils.friendRequest({
-                picture: data.picture,
+                avatar: data.avatar,
                 displayName: data.displayName
             });
         });

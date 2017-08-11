@@ -24,7 +24,7 @@
 										<div class="answer-game-item no-radius" 
 											ng-class="{'answer-one':($index == 0),'answer-two':($index == 1),'answer-three':($index == 2),'answer-four':($index == 3)}">
 											{{a.content}}
-											<i class="fa fa-2x pull-right" ng-class="{'fa-times':(a.myChoice && !a.isTrue),'fa-check':(a.isTrue)}"></i>
+											<i class="fa fa-2x pull-right" ng-class="{'fa-times':(a.myChoice && !a.isCorrect),'fa-check':(a.isCorrect)}"></i>
 										</div>
 									</div>
 								</div>

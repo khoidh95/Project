@@ -10,7 +10,7 @@
 		         <div class="row">
 		         	<input id="upload-img" type="file" accept=".png, .jpg, .jpeg" style="display: none" />
 		            <div class="col-md-3 col-lg-3 table-user-information-avatar" align="center">
-		            	<img class="avatar-image-root img-responsive" alt="User Pic" src="<%= user.picture %>"> 
+		            	<img class="avatar-image-root img-responsive" alt="User Pic" src="<%= user.avatar %>"> 
 		            	<div class="table-user-information-avatar-wrapper">
 		            		<div class="camera-upload-wrapper">
 		            			<i id="camera-upload" class="fa fa-camera fa-2x" aria-hidden="true"></i>
@@ -77,12 +77,12 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title">Create profile picture</h3>
+            <h3 class="modal-title">Create profile avatar</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body">
             <div>
-              <img id="img-in-modal" class="img-responsive" alt="Picture">
+              <img id="img-in-modal" class="img-responsive" alt="avatar">
               <canvas id="crop-canvas" width="320" height="320" style="display: none"></canvas>
             </div>
           </div>
