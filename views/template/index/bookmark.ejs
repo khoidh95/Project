@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 bookmark-item-wrapper"  ng-repeat="b in bookmarks">
 					<div  class="white-text bookmark-item" uib-popover-template="'bookmark-detail-popup'" popover-title="Explain & Answer" popover-placement="bottom" popover-trigger="'outsideClick'">
-						<div class="question-game-wraper">
+						<div style="word-wrap: break-word;" class="question-game-wraper">
 							<p ng-bind-html="b.questions.content"></p>
 						</div>
 						<div class="ribbon">
@@ -16,7 +16,7 @@
 						</div>
 						<script type="text/ng-template" id="bookmark-detail-popup">
 							<div class="white-text bookmark-detail">
-								<div class="question-game-wraper">
+								<div style="word-wrap: break-word;" class="question-game-wraper">
 									<p ng-bind-html="b.questions.explain"></p>
 								</div>
 								<div class="row">
@@ -33,8 +33,8 @@
 					</div>
 				</div>
 			</div>
-			<button class="btn btn-default pull-left" ng-click="preBookmark()">Previous</button>
-			<button class="btn btn-default pull-right" ng-click="nextBookmark()">Next</button>
+			<button class="btn btn-default pull-left" style="width:80px;" ng-click="preBookmark()">Previous</button>
+			<button class="btn btn-default pull-right" style="width:80px;" ng-click="nextBookmark()">Next</button>
 			<h4 class="text-center">
 				<label class="label label-primary">{{paggingBookmark.current + 1}}/{{paggingBookmark.pages}}</label>
 			</h4>

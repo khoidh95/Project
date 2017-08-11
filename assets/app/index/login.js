@@ -81,15 +81,15 @@ $(function () {
             if (st > lastScrollTop) { // downscroll
                 if (st >= begin_ht && st < begin_ht + gap_ht) {
                     menu.css({
-                        "background-color": "rgba(40, 46, 66, 0.3)"
+                        "background-color": "rgba(43, 61, 82, 0.3)"
                     });
                 } else if (st >= mid_ht && st < mid_ht + gap_ht) {
                     menu.css({
-                        "background-color": "rgba(40, 46, 66, 0.7)"
+                        "background-color": "rgba(43, 61, 82, 0.5)"
                     });
                 } else if (st >= end_ht) {
                     menu.css({
-                        "background-color": "rgba(40, 46, 66, 1)"
+                        "background-color": "rgba(43, 61, 82, 1)"
                     });
                 }
             } else { // upscroll

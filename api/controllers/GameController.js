@@ -353,21 +353,21 @@ module.exports = {
 													User.update({id:id1},{level:u1.level + 2}).exec(function(err, upU1){});
 												});
 												User.findOne({id:id2}).exec(function(err, u2){
-													User.update({id:id2},{level:u2.level + 10, score:u2.score + 1}).exec(function(err, upU2){});
+													User.update({id:id2},{level:u2.level + 10, score:u2.score + 3}).exec(function(err, upU2){});
 												});
 											}else if(g.user_one_score > g.user_two_score){
 												User.findOne({id:id1}).exec(function(err, u1){
-													User.update({id:id1},{level:u1.level + 10, score:u1.score + 1}).exec(function(err, upU1){});
+													User.update({id:id1},{level:u1.level + 10, score:u1.score + 3}).exec(function(err, upU1){});
 												});
 												User.findOne({id:id2}).exec(function(err, u2){
 													User.update({id:id2},{level:u2.level + 2}).exec(function(err, upU2){});
 												});
 											}else{
 												User.findOne({id:id1}).exec(function(err, u1){
-													User.update({id:id1},{level:u1.level + 5}).exec(function(err, upU1){});
+													User.update({id:id1},{level:u1.level + 5, score:u1.score + 1}).exec(function(err, upU1){});
 												});
 												User.findOne({id:id2}).exec(function(err, u2){
-													User.update({id:id2},{level:u2.level + 5}).exec(function(err, upU2){});
+													User.update({id:id2},{level:u2.level + 5, score:u1.score + 1}).exec(function(err, upU2){});
 												});
 											}
 										//THIS IS FRIEND GAME

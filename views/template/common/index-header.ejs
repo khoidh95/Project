@@ -3,7 +3,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
-	            <a class="navbar-brand" href="/" style="padding:0px 15px !important;"><img src="/images/Yugen.png" width="50" height="50"></a>
+	            <a class="navbar-brand" href="/" style="padding:0px 15px !important;"><img src="/images/Yugen.png" width="55" height="50"></a>
 	        </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,7 +17,7 @@
                         </a>
                     </li> 
                     <li>
-                       <a href="#" class="dropdown-toggle dropdow-brand-menu">
+                       <a class="dropdown-toggle dropdow-brand-menu">
                               <div class="pill -type-night -icon-position-left -layout-inline -center-center" style="width:55px;">
                                  <div class="-layout-h -center -space-h-8">
                                     <img src="/images/level.png" width="24" height="24">
@@ -29,7 +29,7 @@
                         </a>
                     </li>
                     <li class="page-scroll mobile-dropdow-position">
-                        <a href="#" class="dropdown-toggle dropdow-brand-menu" data-toggle="dropdown">
+                        <a style = "cursor: pointer;" class="dropdown-toggle dropdow-brand-menu" data-toggle="dropdown">
                            <i class="fa fa-users fa-2x" aria-hidden="true"></i> 
                            <span  ng-show="listFriendRequest.length != 0" class="badge pull-right navbar-menu-notify">{{listFriendRequest.length}}</span>
                        </a>
@@ -46,10 +46,10 @@
                                           <img src="/images/level.png" width="24" height="24"> {{r.level}}
                                         </span>
                                         <span>
-                                          <img src="/images/coin.svg" width="24" height="24"> {{r.score}}
+                                          <img src="/images/rank.png" width="24" height="24"> {{r.rank}}
                                         </span>
                                         <span>
-                                          <img src="/images/rank.png" width="24" height="24"> {{r.rank}}
+                                          <img src="/images/jlpt.png" width="24" height="24"> {{r.jlpt}}
                                         </span>
                                       </div>
                                       <div style="margin-top: 15px">
@@ -68,7 +68,7 @@
                        </ul>
                     </li>
                     <li class="dropdown">
-                       <a href="#" class="dropdown-toggle dropdow-brand-menu dropdow-avatar" data-toggle="dropdown">
+                       <a style = "cursor: pointer;" class="dropdown-toggle dropdow-brand-menu dropdow-avatar" data-toggle="dropdown">
                            <img class="nav-avatar avatar-image-root" src="<%= user.picture%>"/>
                        </a>
                        <ul class="dropdown-menu">

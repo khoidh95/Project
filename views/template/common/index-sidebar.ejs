@@ -2,7 +2,7 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li class="sidebar-brand">
-            <a href="#">
+            <a>
                 Start Bootstrap
             </a>
         </li>
@@ -30,11 +30,11 @@
                         <img src="/images/level.png" width="24" height="24"> {{f.level}}
                     </span>
                     <span>
-                        <img src="/images/coin.svg" width="24" height="24"> {{f.score}}
-                    </span>
-                    <span>
                         <img src="/images/rank.png" width="24" height="24"> {{f.rank}}
                     </span>
+                    <span>
+			            <img src="/images/jlpt.png" width="24" height="24"> {{f.jlpt}}
+					</span>	
                     <div style="margin-top:10px">
                         <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#choose-friend-game-box-modal" ng-click="invite.id = f.id"><i class="fa fa-gamepad fa-2x" aria-hidden="true"></i></button>
                         <button class="btn btn-danger btn-sm" ng-click="deleteFriendRq(f.id, f.displayName)"><i class="fa fa-user-times fa-2x" aria-hidden="true"></i></button>
@@ -59,11 +59,11 @@
                         <img src="/images/level.png" width="24" height="24"> {{f.level}}
                     </span>
                     <span>
-                        <img src="/images/coin.svg" width="24" height="24"> {{f.score}}
-                    </span>
-                    <span>
                         <img src="/images/rank.png" width="24" height="24"> {{f.rank}}
                     </span>
+                    <span>
+			            <img src="/images/jlpt.png" width="24" height="24"> {{f.jlpt}}
+					</span>	
                     <div style="margin-top:10px">
                         <button class="btn btn-danger btn-sm" ng-click="deleteFriendRq(f.id, f.displayName)"><i class="fa fa-user-times fa-2x" aria-hidden="true"></i></button>
                     </div>
@@ -94,10 +94,10 @@
                         <div><strong id="friend-search-result-displayName"></strong></div>
                         <div>
                             <button id="search-addFriend-btn" class="btn btn-primary">Add friend <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                            <button id="search-addFriend-btn-seen" class="btn btn-primary">Da gui loi moi <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
-                            <button id="search-addFriend-btn-accept" class="btn btn-success">Chap nhan loi moi <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
-                            <button id="search-addFriend-btn-destroy" class="btn btn-danger">Huy yeu cau <i class="fa fa-times" aria-hidden="true"></i></button>
-                            <button id="search-addFriend-btn-isFriend" class="btn btn-info">Ban be <i class="fa fa-users" aria-hidden="true"></i></button>
+                            <button id="search-addFriend-btn-seen" class="btn btn-primary">Request sent <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                            <button id="search-addFriend-btn-accept" class="btn btn-success">Accept request<i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                            <button id="search-addFriend-btn-destroy" class="btn btn-danger">Cancel request <i class="fa fa-times" aria-hidden="true"></i></button>
+                            <button id="search-addFriend-btn-isFriend" class="btn btn-info">Friends <i class="fa fa-users" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>

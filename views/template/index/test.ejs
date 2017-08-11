@@ -37,8 +37,8 @@
 				</div>
 				<div>
 					<div class="row margin-bt-20">
-	            		<button class="btn btn-default pull-left" ng-click="preTest()">Previous</button>
-	            		<button class="btn btn-default pull-right" ng-click="nextTest()">Next</button>
+	            		<button class="btn btn-default pull-left" style="width:80px;" ng-click="preTest()">Previous</button>
+	            		<button class="btn btn-default pull-right" style="width:80px;" ng-click="nextTest()">Next</button>
 	            		<h4>
 	            			<a class="label label-default lbl-center">{{testSkip+1}}/{{questions.length}}</a>
 	            		</h4>
@@ -65,7 +65,7 @@
 	            <div class="modal-body answer-two">
 	            	<h1 class="text-center">Correct answer: {{mark}} / {{questions.length}}</h1>
 	            	<h2 ng-if="jlptUp != undefined" class="text-center">
-	            		Chúc mừng bạn đã đạt được trinh độ <label class="label label-danger animated infinite tada" style="display: inline-block;">{{jlptUp}}</label>
+	            		Chúc mừng bạn đã đạt được trinh độ <label class="label label-success animated infinite tada" style="display: inline-block;">{{jlptUp}}</label>
 	            	</h2>
 	            </div>
 	            <div class="modal-footer">
