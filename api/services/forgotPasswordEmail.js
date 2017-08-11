@@ -1,5 +1,5 @@
 var Cryptr = require('cryptr'),
-    cryptr = new Cryptr('daylakeymahoaverifyemail');
+    cryptr = new Cryptr('encryptverifyemail');
 var mail = require('../services/sendMail.js');
 
 var verifyMail ={

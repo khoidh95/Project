@@ -7,7 +7,7 @@
 var query =  require('../services/query.js');
 var socRQ = require('../services/SocRQ.js');
 var Cryptr = require('cryptr'),
-    cryptr = new Cryptr('mahoagamerank');
+    cryptr = new Cryptr('encryptrankgame');
 module.exports = {
 	rankRegister:function (req, res) {
 		if (!req.isSocket) return res.json({message:'have_err'});
@@ -414,16 +414,16 @@ module.exports = {
 					    	});
 				    	}
     				}
-    				if(counter >= 0 && counter <=35){
+    				if(counter >= 0 && counter <=20){
     					if(counter == 0 && skip == 0){
-    						counter = 30;
+    						counter = 15;
     					}
-    					if(counter <= 30){
+    					if(counter <= 15){
 	    					sails.sockets.broadcast('play-' + id1, 'counterTime',{counter:counter, skip:skip});
 							sails.sockets.broadcast('play-' + id2, 'counterTime',{counter:counter, skip:skip});
 						}
     				}else{
-    					counter = 35;
+    					counter = 20;
     				}
     				counter--;
 			    }, 1000);
@@ -621,6 +621,13 @@ module.exports = {
 			return res.json({message:'have_err'});
 		})	
 	},
+	playWithFriendInit: function(req, res){
+		if (!req.isSocket) return res.json({message:'have_err'});
+		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
+		if(sails.config.globals.roomGame['play-friend-request-' + req.session.passport.user]){
+			return res.json({message:'in_request'});
+		}
+	},
 	playWithFriendCancel: function(req, res){
 		if (!req.isSocket) return res.json({message:'have_err'});
 		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
@@ -636,14 +643,7 @@ module.exports = {
 		socRQ.sendMessageRoomFriend(req.session.passport.user,'friend-game-invite-im-cancel',{});
 		delete sails.config.globals.roomGame['play-friend-request-' + req.session.passport.user];
 		res.json({message:'success'});
-	},
-	playWithFriendInit: function(req, res){
-		if (!req.isSocket) return res.json({message:'have_err'});
-		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
-		if(sails.config.globals.roomGame['play-friend-request-' + req.session.passport.user]){
-			return res.json({message:'in_request'});
-		}
-	},
+	},	
 	playWithFriendJoinGame: function(req, res){
 		if (!req.isSocket) return res.json({message:'have_err'});
 		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});

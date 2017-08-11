@@ -275,7 +275,10 @@ html {
 .navbar-login .navbar-nav li a {
   color: white;
 }
-/* Shine */
+.navbar-brand:hover{
+  transform: scale(1.1);
+}
+/* Shine
 .navbar-brand figure::before {
 	position: absolute;
 	top: 0;
@@ -303,7 +306,7 @@ html {
 	100% {
 		left: 125%;
 	}
-}
+} */
 .navbar-login .navbar-nav li a:hover {
   color: #177fbc;
 }
