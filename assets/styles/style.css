@@ -236,14 +236,13 @@ html {
 #login-section {
     min-height: 100%;
     padding-bottom: 20px;
-    background: #453782 linear-gradient(to bottom right, #480481, #5BC0EB);
+    background: url(https://getuikit.com/images/section-background.svg),linear-gradient(to left top, #28a, #1e8);
 }
 #intro-session {
     /*padding-top: 150px;*/
     position: relative;
     z-index: 999;
-    background-color: rgb(72, 4, 129);
-    background-image: linear-gradient(to left top, rgb(255, 116, 0) 0%, rgb(255, 95, 54) 25.75%, rgb(255, 91, 63) 30.28%, rgb(255, 42, 186) 89.19%, rgb(255, 42, 187) 89.22%, rgb(255, 33, 209) 100%);
+    background: url(https://getuikit.com/images/section-background.svg),linear-gradient(to left bottom, #28a, #1e8);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left top;
@@ -607,8 +606,7 @@ html {
   }
   #user-profile-section{
     padding-bottom: 15px;
-    background-color: rgb(72, 4, 129);
-    background-image: linear-gradient(to left top, rgb(255, 116, 0) 0%, rgb(255, 95, 54) 25.75%, rgb(255, 91, 63) 30.28%, rgb(255, 42, 186) 89.19%, rgb(255, 42, 187) 89.22%, rgb(255, 33, 209) 100%);
+        background: url(https://getuikit.com/images/section-background.svg),linear-gradient(to left top, #28a, #1e8);
   }
   /*SIDE BAR*/
   /* Toggle Styles */
@@ -649,7 +647,7 @@ html {
     width: 100%;
     position: absolute;
     height: 100%;
-    background-image: linear-gradient(to left top, rgb(255, 116, 0) 0%, rgb(255, 95, 54) 25.75%, rgb(255, 91, 63) 30.28%, rgb(255, 42, 186) 89.19%, rgb(255, 42, 187) 89.22%, rgb(255, 33, 209) 100%);
+    background: url(https://getuikit.com/images/section-background.svg),linear-gradient(to left top, #28a, #1e8);
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -1002,6 +1000,7 @@ html {
     border-bottom-right-radius: 5px;
     background: #fff;
     font-size:1.5em;
+    height:64px;
   }
   .waiting-rank-box{
     width: 200px;
