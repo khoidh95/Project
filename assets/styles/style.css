@@ -959,7 +959,7 @@ html {
     left: 15px;
   }
   .friend-invite-game-wrapper{
-    max-height: 200px;
+    height: 150px;
     overflow-y: scroll;
     overflow-x: hidden;
     background: #2B3D52;

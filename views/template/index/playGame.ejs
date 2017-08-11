@@ -45,7 +45,6 @@
 					</div>
 					<div class="col-sm-3 col-md-2 xs-hide">
 						<div class="text-center text-bold" ng-class="{'animated rollIn':(correctAnswer == undefined)}">{{compatitor_score}}</div>
-
 						<div ng-class="{'animated zoomInUp animate-one-3':(next_score_compatitor > compatitor_score),'hide':(correctAnswer == undefined || next_score_compatitor <= compatitor_score)}"
 						 style="position: absolute;right:0">
 							<img src="/images/correct.png" width="100" height="100" class="fa-spin">
@@ -91,11 +90,11 @@
 								</div>
 							</div>
 							<div class="col-xs-2 col-sm-3">
-								<div class="char-col-green" ng-class="{'char-col-red':(me_score < compatitor_score)}" style="height: {{me_score*100/2300}}%"></div>
+								<div class="char-col-green" ng-class="{'char-col-red':(me_score < compatitor_score)}" style="height: {{me_score*100/4500}}%"></div>
 								<div class="text-center text-bold">{{me_score}}</div>
 							</div>
 							<div class="col-xs-2 col-sm-3">
-								<div class="char-col-green" ng-class="{'char-col-red':(me_score > compatitor_score)}" style="height: {{compatitor_score*100/2300}}%"></div>
+								<div class="char-col-green" ng-class="{'char-col-red':(me_score > compatitor_score)}" style="height: {{compatitor_score*100/4500}}%"></div>
 								<div class="text-center text-bold">{{compatitor_score}}</div>
 							</div>
 							<div class="col-xs-4 col-sm-3">

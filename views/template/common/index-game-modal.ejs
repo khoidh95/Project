@@ -91,7 +91,7 @@
 	<div class="modal fade" id="friend-game-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
 	    <div class="modal-dialog modal-lg">
 	        <div class="modal-content">
-	            <div class="modal-header modal-header-warning">
+	            <div class="modal-header modal-header-primary">
 	                <h1>Play with friend</h1>
 	            </div>
 	            <div class="modal-body">
@@ -100,7 +100,7 @@
 	            			<h3 class="text-center">Online Friend</h3>
 	            			<div class="friend-invite-game-wrapper">
 	            				<div ng-repeat="f in listFriendOnline" class="friend-invite-game">
-		            				<div class="row">
+		            				<div class="row" style="margin-top:5px">
 		            					<div class="col-xs-4 col-sm-5 relative-inline">
 		            						<img src="{{f.avatar}}" class="img-responsive" />
 				                        	<span class="label label-success absolute-left-bottom-opa left-15">Online</span>
@@ -114,7 +114,7 @@
 				                        	</div>
 				                        </div>
 				                    </div>
-				                    <div>
+				                    <div style="margin-top:10px">
 				                    	<span>
 					                        <img src="/images/level.png" width="24" height="24"> {{f.level}}
 					                    </span>
@@ -134,19 +134,17 @@
     					<div class="col-xs-12 col-sm-8 text-center" ng-if="history_friend.data.length > 0">
     						<h3>Game with friend history</h3>
     						<div class="history-wrapper">
-    							<table class="table table-condensed table-td-h100px">
+    							<table class="table table-condensed table-td-h100px" style="margin-bottom:0 !important">
 									<tr ng-repeat="h in history_friend.data">
-										<td>
+										<td style="vertical-align: bottom">
 											<img src="{{h.me.avatar}}" width="50">
 											<div>{{h.me.displayName}}</div>
 										</td>
-										<td>
-											
-					            			<div class="char-col-green" ng-class="{'char-col-red':(h.me.score < h.compatitor.score),'char-col-green':(h.me.score == h.compatitor.score)}" style="height: {{h.me.score*100/2300}}%"></div>
+										<td style="vertical-align: bottom">
+					            			<div class="char-col-green" ng-class="{'char-col-red':(h.me.score < h.compatitor.score),'char-col-green':(h.me.score == h.compatitor.score)}" style="height: {{h.me.score*100/4500}}%"></div>
 					            			<div class="text-center text-bold">{{h.me.score}}</div>
-
 										</td>
-										<td>
+										<td style="vertical-align: bottom">
 											<div class="text-check text-bold" ng-if="h.me.score > h.compatitor.score">
 					            				WIN
 					            			</div>
@@ -157,16 +155,15 @@
 					            				DRAW
 					            			</div>
 										</td>
-										<td>
-											<div class="char-col-green" ng-class="{'char-col-red':(h.me.score > h.compatitor.score),'char-col-green':(h.me.score == h.compatitor.score)}" style="height: {{h.compatitor.score*100/2300}}%"></div>
+										<td style="vertical-align: bottom">
+											<div class="char-col-green" ng-class="{'char-col-red':(h.me.score > h.compatitor.score),'char-col-green':(h.me.score == h.compatitor.score)}" style="height: {{h.compatitor.score*100/4500}}%"></div>
 					            			<div class="text-center text-bold">{{h.compatitor.score}}</div>
 										</td>
-										<td>
+										<td style="vertical-align: bottom">
 											<img src="{{h.compatitor.avatar}}" width="50">
 											<div>{{h.compatitor.displayName}}</div>
 										</td>
 									</tr>
-
 								</table>
     						</div>
     						<div>
@@ -180,8 +177,7 @@
     					<div class="col-xs-12 col-sm-8 text-center" ng-if="history_friend.data.length == 0">
     						Chua dau tran nao...
     					</div>
-	            	</div>
-	            	
+	            	</div>       	
 	            </div>
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
@@ -201,8 +197,7 @@
 	            		<div class="col-xs-12">
 	            			<img src="/images/loading-table.gif" style="width: 100%;">
 	            		</div>
-	            	</div>
-	            	
+	            	</div>    	
 	            </div>
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-default pull-left" ng-click="playWithFriendCancel()">Cancel</button>
@@ -224,7 +219,7 @@
 	            			<div class="overflow-y-300">
 		            			<table class="table table-condensed table-td-h100px">
 			            			<tr ng-repeat="t in top10">
-			            				<td>
+			            				<td style="vertical-align: middle">
 			            					<div ng-if="t.rank == 1"><img src="/images/cup1.png" width="70" height="70" class="tada animated solgan-text-2"></div>
 			            					<div ng-if="t.rank == 2"><img src="/images/cup2.png" width="70" height="70"></div>
 			            					<div ng-if="t.rank == 3"><img src="/images/cup3.png" width="70" height="70"></div>
@@ -236,8 +231,8 @@
 			            					<div ng-if="t.rank == 9"><img src="/images/cup9.png" width="60" height="60"></div>
 			            					<div ng-if="t.rank == 10"><img src="/images/cup10.png" width="60" height="60"></div>
 			            				</td>
-			            				<td><img src="{{t.avatar}}" width="50" height="50"></td>
-			            				<td>
+			            				<td style="vertical-align: middle"><img src="{{t.avatar}}" width="50" height="50"></td>
+			            				<td style="vertical-align: middle">
 			            					<div>{{t.displayName}}</div>
 			            					<div>
 			            						<span>
@@ -255,19 +250,17 @@
     					<div class="col-xs-12 col-sm-8 text-center" ng-if="history_rank.data.length > 0">
     						<h3>Rank history</h3>
     						<div class="history-wrapper">
-    							<table class="table table-condensed table-td-h100px">
+    							<table class="table table-condensed table-td-h100px" style="margin-bottom:0 !important">
 									<tr ng-repeat="h in history_rank.data">
-										<td>
+										<td style="vertical-align: bottom">
 											<img src="{{h.me.avatar}}" width="50">
 											<div>{{h.me.displayName}}</div>
 										</td>
-										<td>
-											
-					            			<div class="char-col-green" ng-class="{'char-col-red':(h.me.score < h.compatitor.score),'char-col-green':(h.me.score == h.compatitor.score)}" style="height: {{h.me.score*100/2300}}%"></div>
+										<td style="vertical-align: bottom">
+					            			<div class="char-col-green" ng-class="{'char-col-red':(h.me.score < h.compatitor.score),'char-col-green':(h.me.score == h.compatitor.score)}" style="height: {{h.me.score*100/4500}}%"></div>
 					            			<div class="text-center text-bold">{{h.me.score}}</div>
-
 										</td>
-										<td>
+										<td style="vertical-align: bottom">
 											<div class="text-check text-bold" ng-if="h.me.score > h.compatitor.score">
 					            				WIN
 					            			</div>
@@ -277,17 +270,16 @@
 					            			<div class="text-bold" ng-if="h.me.score == h.compatitor.score">
 					            				DRAW
 					            			</div>
-										</td>
-										<td>
-											<div class="char-col-green" ng-class="{'char-col-red':(h.me.score > h.compatitor.score),'char-col-green':(h.me.score == h.compatitor.score)}" style="height: {{h.compatitor.score*100/2300}}%"></div>
+										</td style="vertical-align: bottom">
+										<td style="vertical-align: bottom">
+											<div class="char-col-green" ng-class="{'char-col-red':(h.me.score > h.compatitor.score),'char-col-green':(h.me.score == h.compatitor.score)}" style="height: {{h.compatitor.score*100/4500}}%"></div>
 					            			<div class="text-center text-bold">{{h.compatitor.score}}</div>
 										</td>
-										<td>
+										<td style="vertical-align: bottom">
 											<img src="{{h.compatitor.avatar}}" width="50">
 											<div>{{h.compatitor.displayName}}</div>
 										</td>
 									</tr>
-
 								</table>
     						</div>
     						<div>
