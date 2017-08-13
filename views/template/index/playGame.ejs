@@ -313,7 +313,6 @@
 					if ($scope.answerChoice != undefined || $scope.correctAnswer != undefined) return;
 					$scope.answerChoice = answerId;
 					io.socket.post('/game/gameanswer', { answerId: answerId }, function responseFromServer(body, res) {
-
 					});
 				}
 				$scope.makeGame();
@@ -321,7 +320,6 @@
 					setTimeout(function () {
 						if ($scope.question == undefined) {
 							io.socket.post('/game/gameinit', function responseFromServer(body, res) {
-
 							});
 						}
 					}, 2000)
@@ -392,6 +390,7 @@
 				io.socket.on('counterTime', function (msg) {
 					$scope.counter = msg.counter;
 					$scope.skip = msg.skip;
+					$scope.sk
 					$scope.$apply();
 				});
 			});

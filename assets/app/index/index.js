@@ -470,7 +470,7 @@ $(function () {
         io.socket.on('cancelRankQueue', function (msg) {
             if (msg.message == 'success') $scope.isWaitingRank = false;
             $('#rank-request-modal').modal('hide');
-            if (msg.registerAgain) $scope.requestRank();
+            if (msg.registerAgain) $scope.requestRank(); 
             $scope.$apply();
         });
 

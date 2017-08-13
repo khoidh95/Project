@@ -330,7 +330,7 @@ module.exports = {
 		    	});
 		    }
 		    GameInfo().then(function(game){
-    			var counter = 0;
+				var counter = 0;
     			//GAME INTERVAL
     			var gameInterval = setInterval(function(){
     				if(counter == 0){
@@ -481,7 +481,7 @@ module.exports = {
 						sails.config.globals._1vs1['room' + game.id].times = new Date().getTime();
 					}else{
 						var times = new Date().getTime() - sails.config.globals._1vs1['room' + game.id].times;
-						times = Math.ceil(times/10000);
+						times = Math.ceil(times/1000);
 						var user_one_score = game.user_one_score  + 5 * times;
 						Game.update({id:game.id},{user_two_score:game.user_two_score + 150, user_one_score: user_one_score})
 							.exec(function(err, update){});
