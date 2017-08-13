@@ -89,13 +89,13 @@
 									<%= user.displayName%>
 								</div>
 							</div>
-							<div class="col-xs-2 col-sm-3">
-								<div class="char-col-green" ng-class="{'char-col-red':(me_score < compatitor_score)}" style="height: {{me_score*100/4500}}%"></div>
-								<div class="text-center text-bold">{{me_score}}</div>
+							<div class="col-xs-2 col-sm-3" style="position:relative">
+								<div class="char-col-green" ng-class="{'char-col-red':(me_score < compatitor_score)}" style="position: absolute;bottom: 20px;left: 0%;width: 100%;height: {{me_score*100/4500}}%"></div>
+								<div class="text-center text-bold" style="position: absolute;bottom:0;left:0;width:100%;">{{me_score}}</div>
 							</div>
-							<div class="col-xs-2 col-sm-3">
-								<div class="char-col-green" ng-class="{'char-col-red':(me_score > compatitor_score)}" style="height: {{compatitor_score*100/4500}}%"></div>
-								<div class="text-center text-bold">{{compatitor_score}}</div>
+							<div class="col-xs-2 col-sm-3" style="position:relative">
+								<div class="char-col-green" ng-class="{'char-col-red':(me_score > compatitor_score)}" style="position: absolute;bottom: 20px;left: 0%;width: 100%;height: {{compatitor_score*100/4500}}%"></div>
+								<div class="text-center text-bold" style="position: absolute;bottom:0;left:0;width:100%;">{{compatitor_score}}</div>
 							</div>
 							<div class="col-xs-4 col-sm-3">
 								<div class="text-center text-bold sm-2em solgan-text-2 animated tada">
@@ -130,7 +130,7 @@
 						<div class="row">
 							<div class="col-xs-6 col-xs-offset-3 text-center">
 								<a class="btn btn-warning" data-toggle="modal" data-target="#game-review-modal">Review <i class="fa fa-wpexplorer"></i></a>
-								<a href="/" class="btn btn-success">Quit <i class="fa fa-angle-right "></i></a>
+								<a href="/" class="btn btn-success" style="width:90px">Quit <i class="fa fa-angle-right "></i></a>
 							</div>
 						</div>
 					</div>
