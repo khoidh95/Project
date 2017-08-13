@@ -226,7 +226,5 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	  		});
 	  	}
 	  	$scope.search(function(){});
-	  	
     })
-
 })();

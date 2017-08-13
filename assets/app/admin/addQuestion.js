@@ -200,8 +200,8 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	  	$scope.submit = function(){
 	  		if($scope.gridOptions.data.length == 0){
 	  			utils.alert({
-                    title:'Thông báo',
-                    msg: 'Chưa thêm bất kì 1 câu hỏi nào'
+                    title:'Error',
+                    msg: 'Please enter more information!'
                 });
                 return;
 	  		}
@@ -209,8 +209,8 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	  			var data = $scope.gridOptions.data[i];
 	  			if(data.content.trim().length == 0 || data.explain.trim().length == 0 || data.jlpt.trim().length == 0 || data.type.trim().length == 0 || data.answer.length != 4){
 	  				utils.alert({
-                        title:'Thông báo',
-                        msg: 'Các trường bôi đỏ không được bỏ trống'
+                        title:'Error',
+						msg: 'Please enter more information!'
                     });
                     return;
 	  			}
@@ -220,8 +220,8 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	  				if(ans[j].content.trim().length==0){
 	  					var x = i + 1;
 	  					utils.alert({
-	                        title:'Thông báo',
-	                        msg: 'Bản ghi thứ ' + x + ' chứa câu trả lời rỗng '
+	                        title:'Error',
+	                        msg: 'Record no' + x + ' must contain 4 answer!'
 	                    });
 	                    return;
 	  				}
@@ -232,16 +232,16 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	  			if(isCorrectAnswerFlag == 0) {
 	  				var x = i + 1;
 	  				utils.alert({
-                        title:'Thông báo',
-                        msg: 'Bản ghi thứ ' + x + ' không chứa đáp án '
+                        title:'Error',
+						msg: 'Record no' + x + ' must contain one correct answer!'
                     });
                     return;
   				}
   				if(isCorrectAnswerFlag > 1) {
 	  				var x = i + 1;
 	  				utils.alert({
-                        title:'Thông báo',
-                        msg: 'Bản ghi thứ ' + x + ' chỉ có thể có 1 đáp án.'
+                        title:'Error',
+						msg: 'Record no' + x + ' must contain one correct answer!'
                     });
                     return;
   				}
@@ -249,8 +249,8 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	  		$.post("/question/add",{data:$scope.gridOptions.data}, function(data, status){
 	  			if(data.message == 'success'){
 	  				utils.confirm({
-                        title:'Thông báo',
-                        msg: 'Insert câu hỏi thành công.Bạn có muốn làm trống các trường câu hỏi trên trình duyệt không?',
+                        title:'Notice',
+                        msg: 'Insert questions success! Do you want to clear the table?',
                         okText:'Yes', cancelText:'No',
                         callback: function(){
                         	$scope.gridOptions.data = [];
@@ -266,5 +266,4 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 	  		});
 	  	}
     })
-
 })();

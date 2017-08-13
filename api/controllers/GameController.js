@@ -309,7 +309,6 @@ module.exports = {
 		    	})
 		    }
 
-
 		    let GetAllQuestionAndAnswer = function(){
 		    	return new Promise(function(fullfill, reject){
 		    		Game.findOne({id:gameId}).populate('questions').exec(function(err, game){
@@ -367,7 +366,7 @@ module.exports = {
 													User.update({id:id1},{level:u1.level + 5, score:u1.score + 1}).exec(function(err, upU1){});
 												});
 												User.findOne({id:id2}).exec(function(err, u2){
-													User.update({id:id2},{level:u2.level + 5, score:u1.score + 1}).exec(function(err, upU2){});
+													User.update({id:id2},{level:u2.level + 5, score:u2.score + 1}).exec(function(err, upU2){});
 												});
 											}
 										//THIS IS FRIEND GAME
@@ -414,16 +413,16 @@ module.exports = {
 					    	});
 				    	}
     				}
-    				if(counter >= 0 && counter <=20){
+    				if(counter >= 0 && counter <=10){
     					if(counter == 0 && skip == 0){
-    						counter = 15;
+    						counter = 5;
     					}
-    					if(counter <= 15){
+    					if(counter <= 5){
 	    					sails.sockets.broadcast('play-' + id1, 'counterTime',{counter:counter, skip:skip});
 							sails.sockets.broadcast('play-' + id2, 'counterTime',{counter:counter, skip:skip});
 						}
     				}else{
-    					counter = 20;
+    					counter = 10;
     				}
     				counter--;
 			    }, 1000);

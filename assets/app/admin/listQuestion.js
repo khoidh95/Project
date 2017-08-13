@@ -207,27 +207,27 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-click="\'grid.ap
 	  	}
 	  	$scope.deleteRecord = function(row){
 	  		utils.confirm({
-                title:'Thông báo',
-                msg: 'Bạn muốn xóa câu hỏi có ID:'+row.id,
+                title:'Notice',
+                msg: 'Do you want to delete question ID: '+row.id+"?",
                 okText:'Yes', cancelText:'No',
                 callback: function(){
 			  		$http.post("/question/delete",{id:row.id},{}).then(function(res){
 			  			if(res.data.message == 'success'){
 			  				utils.alert({
-		                        title:'Thông báo',
-		                        msg: 'Đã xóa câu hỏi có ID:' + row.id
+		                        title:'Notice',
+		                        msg: 'Deleted question ID: ' + row.id
 		                    });
 		                    $scope.search(function(err){})
 			  			}else{
 			  				utils.alert({
-		                        title:'Thông báo',
-		                        msg: 'Có lỗi gì đó xảy ra.'
+		                        title:'Error',
+		                        msg: 'Something went wrong!'
 		                    });
 			  			}
 			  		}).catch(function(err){
 			  			utils.alert({
-		                    title:'Thông báo',
-		                    msg: 'Có lỗi gì đó xảy ra.'
+		                    title:'Error',
+							msg: 'Something went wrong!'
 		                });
 			  		});
                 }
@@ -239,22 +239,22 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-click="\'grid.ap
 	  				$scope.gridOptions.data[i] = res.data.question;
 	  			}else{
 	  				utils.alert({
-	                    title:'Thông báo',
-	                    msg: 'Có lỗi gì đó xảy ra.'
+	                    title:'Error',
+						msg: 'Something went wrong!'
 	                });
 	  			}
 	  		}).catch(function(err){
 	  			utils.alert({
-	                title:'Thông báo',
-	                msg: 'Có lỗi gì đó xảy ra.'
+	                title:'Error',
+					msg: 'Something went wrong!'
 	            });
 	  		});
 	  	}
 	  	$scope.updateRecord = function(row, i){
 			if(row.content.trim().length == 0 || row.explain.trim().length == 0 || row.jlpt.trim().length == 0 || row.type.trim().length == 0 || row.answer.length != 4){
 				utils.alert({
-                    title:'Thông báo',
-                    msg: 'Update câu hỏi không thành công. Các trường bôi đỏ không được bỏ trống'
+                    title:'Error',
+                    msg: 'Please enter more information!'
                 });
                 return;
 			}
@@ -263,8 +263,8 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-click="\'grid.ap
 	  			var ans = row.answer;
   				if(ans[i].content.trim().length==0){
   					utils.alert({
-                        title:'Thông báo',
-                        msg: 'Bản ghi ID ' + row.id + ' chứa câu trả lời rỗng '
+                        title:'Error',
+                        msg: 'Record ID ' + row.id + " doesn't have enough answer! "
                     });
                     return;
   				}
@@ -272,41 +272,41 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-click="\'grid.ap
 			}
 			if(flagisCorrect == 0) {
 				utils.alert({
-                    title:'Thông báo',
-                    msg: 'Update câu hỏi không thành công.Bản ghi ID ' + row.id + ' câu trả lời phải có 1 đáp án đúng'
+                    title:'Error',
+                    msg: 'Record ID ' + row.id + ' must contain one correct answer!'
                 });
                 return;
 			}
 			if(flagisCorrect > 1) {
 	  				var x = i + 1;
 	  				utils.alert({
-                        title:'Thông báo',
-                        msg: 'Update câu hỏi không thành công.Bản ghi ID ' + row.id + ' chỉ có thể có 1 đáp án.'
+                        title:'Error',
+                        msg: 'Record ID ' + row.id + ' must contain one correct answer!'
                     });
                     return;
   				}
 	  		utils.confirm({
-                title:'Thông báo',
-                msg: 'Bạn muốn update câu hỏi có ID:'+row.id,
+                title:'Notice',
+                msg: 'Do you want to update question ID:'+row.id,
                 okText:'Yes', cancelText:'No',
                 callback: function(){
 			  		$http.post("/question/update",{question:row},{}).then(function(res){
 			  			if(res.data.message == 'success'){
 			  				utils.alert({
-		                        title:'Thông báo',
-		                        msg: 'Đã update câu hỏi có ID:' + row.id
+		                        title:'Notice',
+		                        msg: 'Question ID:' + row.id + "is updated!"
 		                    });
 		                    $scope.search(function(err){})
 			  			}else{
 			  				utils.alert({
-		                        title:'Thông báo',
-		                        msg: 'Có lỗi gì đó xảy ra.'
+		                        title:'Error',
+		                        msg: 'Something went wrong!'
 		                    });
 			  			}
 			  		}).catch(function(err){
 			  			utils.alert({
-		                    title:'Thông báo',
-		                    msg: 'Có lỗi gì đó xảy ra.'
+		                    title:'Error',
+							msg: 'Something went wrong!'
 		                });
 			  		});
                 }
@@ -404,8 +404,6 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-click="\'grid.ap
 	  			cb(err);
 	  		});
 	  	}
-	  	//$scope.search(function(){});
-
 
 		$scope.currentFocused = "";
 		$scope.getCurrentFocus = function(){
@@ -416,6 +414,5 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-click="\'grid.ap
 				//rowCol.col.entity.id="a";		
 			}
 		}
-
 	})
 })();

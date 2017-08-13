@@ -1,6 +1,5 @@
 $(function () {
     $('.button-checkbox').each(function () {
-
         // Settings
         var $widget = $(this),
             $button = $widget.find('button'),
@@ -24,7 +23,6 @@ $(function () {
         $checkbox.on('change', function () {
             updateDisplay();
         });
-
         // Actions
         function updateDisplay() {
             var isChecked = $checkbox.is(':checked');
@@ -49,12 +47,9 @@ $(function () {
                     .addClass('btn-default');
             }
         }
-
         // Initialization
         function init() {
-
             updateDisplay();
-
             // Inject the icon if applicable
             if ($button.find('.state-icon').length == 0) {
                 $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i>');
@@ -107,7 +102,6 @@ $(function () {
                     });
                 }
             }
-
             lastScrollTop = st;
         }
     };
@@ -147,8 +141,8 @@ $(document).ready(function () {
             $('#email').val($.url().param('email'));
             $('#displayName').val($.url().param('displayname'));
             utils.alert({
-                title: 'Thong bao',
-                msg: 'Email da ton tai'
+                title: 'Error',
+                msg: 'Email is existed!'
             })
         }
     }
@@ -157,26 +151,28 @@ $(document).ready(function () {
         $('.register-panel').hide();
         $('#login_email').val($.url().param('email'));
         $('#login_password').val('');
-        if ($.url().param('login_message') == 'email_not_found') {
+        if($.url().param('login_message') == 'email_not_found'){
             utils.alert({
-                title: 'Thong bao',
-                msg: 'Email khong ton tai'
+                title:'Error',
+                msg: 'Email not found!'
             })
         }
-        if ($.url().param('login_message') == 'account_not_active') {
-            utils.confirm({
-                title: 'Thong bao',
-                msg: 'Tai khoan chua duoc kich hoat',
-                okText: 'Gui lai link kick hoat',
-                callback: function () {
-                    $('#active_send_modal').modal('show');
-                }
+        if($.url().param('login_message') == 'not_admin'){
+            utils.alert({
+                title:'Error',
+                msg: 'You do not have permission to access!'
             })
         }
-        if ($.url().param('login_message') == 'password_not_correct') {
+        if($.url().param('login_message') == 'account_not_active'){
             utils.alert({
-                title: 'Thong bao',
-                msg: 'Sai mat khau'
+                title:'Error',
+                msg: "Your email isn't activated!"
+            })
+        }
+        if($.url().param('login_message') == 'password_not_correct'){
+            utils.alert({
+                title:'Error',
+                msg: 'Wrong password!'
             })
         }
     }
@@ -215,7 +211,8 @@ $(document).ready(function () {
             password: {
                 required: true,
                 minlength: 6,
-                maxlength: 18
+                maxlength: 18,
+                twoSpace: true
             },
             password_confirmation: {
                 required: true,
@@ -229,31 +226,29 @@ $(document).ready(function () {
         },
         messages: {
             email: {
-                required: "Please enter a email",
-                minlength: "Your email must consist of at least 5 characters",
-                maxlength: "Your email must consist of at most 45 characters",
-                isEmail: "Your email must be email"
+                required: "Please enter an email!",
+                minlength: "Your email must contain at least 5 characters!",
+                maxlength: "Your email is too long!",
+                isEmail: "Invalid email!"
             },
             displayName: {
-                required: "Please provide a display name",
-                minlength: "Your display name must be at least 2 characters long",
-                maxlength: "Your display name must consist of at most 45 characters",
-                twoSpace: "Your display name have 2 consecutive spaces"
+                required: "Please enter a display name!",
+                minlength: "Your display name must contain at least 2 characters!",
+                maxlength: "Your display name is too long!",
+                twoSpace: "Invalid display name!"
             },
             password: {
-                required: "Please provide a password",
-                minlength: "Your password must be at least 6 characters long",
-                maxlength: "Your password must consist of at most 18 characters"
-
+                required: "Please enter a password!",
+                minlength: "Your password must contain at least 6 characters!",
+                maxlength: "Your password is too long!",
+                twoSpace: "Invalid password!"
             },
             password_confirmation: {
-                required: "Please provide a password",
-                minlength: "Your password confirm must be at least 6 characters long",
-                maxlength: "Your password confirm must consist of at most 18 characters",
-                equalTo: "Please enter the same password as above"
+                required: "Please enter a confirm password!",
+                equalTo: "Your confirm password is not match with your password!"
             },
             agree: {
-                required: "Please accept our Terms and Conditions"
+                required: "Please accept our Terms and Conditions!"
             }
         },
         errorElement: "em",
@@ -274,7 +269,45 @@ $(document).ready(function () {
             $(element).parents(".col-sm-5").addClass("has-success").removeClass("has-error");
         }
     });
+    $("#signinForm").validate({
+        rules: {
+            login_email: {
+                required: true,
+                isEmail: true
+            },
+            login_password: {
+                required: true,
+                twoSpace: true
+            }
+        },
+        messages: {
+            login_email: {
+                required: "Please enter an email!",
+                isEmail: "Invalid email!"
+            },
+            login_password: {
+                required: "Please enter a password!",
+                twoSpace: "Invalid password!"
+            }
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+            // Add the `help-block` class to the error element
+            error.addClass( "help-block" );
 
+            if ( element.prop( "type" ) === "checkbox" ) {
+                error.insertAfter( element.parent( "label" ) );
+            } else {
+                error.insertAfter( element );
+            }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+            $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+    });
     $("#active_send_btn").click(function () {
         var email = $('#active_email').val().trim();
         var password = $('#active_password').val().trim();
@@ -283,32 +316,32 @@ $(document).ready(function () {
             switch (data.message) {
                 case 'email_not_found':
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Email khong ton tai. Chung toi khong the gui lai ma kich hoat cho ban'
+                        title: 'Error',
+                        msg: 'Email not found!'
                     })
                     break;
                 case 'password_not_correct':
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Sai mat khau. Chung toi khong the gui lai ma kich hoat cho ban'
+                        title: 'Error',
+                        msg: 'Wrong password!'
                     })
                     break;
                 case 'email_actived':
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Tai khoan da duoc kich hoat. Chung toi khong the gui lai ma kich hoat cho ban'
+                        title: 'Error',
+                        msg: 'Your email is activated!'
                     })
                     break;
                 case 'have_error':
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Co loi gi do xay ra. Chung toi khong the gui lai ma kich hoat cho ban'
+                        title: 'Error',
+                        msg: 'Something went wrong!'
                     })
                     break;
                 case 'success':
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Chung toi da gui lai ma kich hoat cho ban.Vui long check mail'
+                        title: 'Notice',
+                        msg: 'We sent a new activate link to your email!'
                     })
                     break;
             }
@@ -320,20 +353,20 @@ $(document).ready(function () {
             switch (data.message) {
                 case 'email_not_found':
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Email khong ton tai. Chung toi khong the gui link doi mat khau cho ban'
+                        title: 'Error',
+                        msg: 'Email not found!'
                     })
                     break;
                 case 'have_error':
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Co loi gi do xay ra. Chung toi khong the gui link doi mat khau cho ban'
+                        title: 'Error',
+                        msg: 'Something went wrong!'
                     })
                     break;
                 case 'success':
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Chung toi da gui 1 link doi mat khau.Vui long check mail'
+                        title: 'Notice',
+                        msg: 'We sent a change password link to your email!'
                     })
                     break;
             }

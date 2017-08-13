@@ -3,7 +3,7 @@
 	<div class="row magrin-bt-10"> 
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="comment">Bản gốc</label>
+				<label for="comment">Original text</label>
 				<textarea class="form-control" rows="5" ng-model="ruby" ng-trim="false" disabled=""></textarea>
 			</div>
 			<script type="text/ng-template" id="ruby.html">
@@ -12,27 +12,27 @@
 				<button class="btn" ng-class="{'btn-default':!onDecoration,'btn-primary':onDecoration}"  ng-click="$parent.decoration()">D</button>
 				<div>
 					<div class="form-group">
-						<label for="pwd">Chữ trên</label>
+						<label for="pwd">Word above</label>
 						<input class="form-control" ng-model="$parent.rubyUp" tabindex="1">
 					</div>
 					<div class="form-group">
-						<label for="pwd">Chữ dưới</label>
+						<label for="pwd">Word below</label>
 						<input class="form-control" ng-model="$parent.rubyDown" tabindex="2">
 					</div>
 					<div class="form-group">
-						<label for="pwd">Chữ thường</label>
+						<label for="pwd">Normal word</label>
 						<input class="form-control" ng-model="$parent.nomalText" ng-trim="false" tabindex="3">
 					</div>
 				</div>
-				<button class="btn btn-success" ng-click="$parent.addRuby()">ADD</button>
-				<button class="btn btn-danger btn-sm" ng-click="$parent.addSpace()">==Space==</button>
+				<button class="btn btn-success" ng-click="$parent.addRuby()">Add</button>
+				<button class="btn btn-danger btn-sm" ng-click="$parent.addSpace()">Space</button>
 			</script>
 			<button class="btn btn-primary" uib-popover-template="'ruby.html'" popover-append-to-body="true"  popover-placement="right" >RubyTag <i class="fa fa-diamond" aria-hidden="true"></i></button>
 		</div>
 
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label>Bản xem trước</label> 
+				<label>Preview text</label> 
 				<div ng-bind-html="ruby" class="wrap-ruby-html"></div>
 			</div>
 		</div>

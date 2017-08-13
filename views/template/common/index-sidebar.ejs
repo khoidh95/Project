@@ -43,8 +43,7 @@
             </script>
         </li>
         <li ng-repeat="f in listFriendOffline" uib-popover-template="'popoFriendOffline'" popover-append-to-body="true" popover-title="{{f.displayName}}" popover-placement="bottom" popover-trigger="'outsideClick'">
-            <div class="list-friend-row">
-                
+            <div class="list-friend-row">         
                 <img src="{{f.avatar}}" width="30" height="30">
                 <span>{{f.displayName}}</span>
                 <img class="online-icon" src="/images/offline.png" width="8" height="8">

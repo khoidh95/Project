@@ -9,8 +9,8 @@ $( document ).ready( function () {
             $('#email').val($.url().param('email'));
             $('#displayName').val($.url().param('displayname'));
             utils.alert({
-                title:'Thong bao',
-                msg: 'Email da ton tai'
+                title:'Error',
+                msg: 'Email is existed!'
             })
         }
     }
@@ -21,20 +21,20 @@ $( document ).ready( function () {
         $('#login_password').val('');
         if($.url().param('login_message') == 'email_not_found'){
             utils.alert({
-                title:'Thong bao',
-                msg: 'Email khong ton tai'
+                title:'Error',
+                msg: "Email isn't exist!"
             })
         }
         if($.url().param('login_message') == 'account_not_active'){
             utils.alert({
-                title:'Thong bao',
-                msg: 'Tai khoan chua duoc kich hoat'
+                title:'Error',
+                msg: "Your email isn't activated!"
             })
         }
         if($.url().param('login_message') == 'password_not_correct'){
             utils.alert({
-                title:'Thong bao',
-                msg: 'Sai mat khau'
+                title:'Error',
+                msg: 'Wrong password!'
             })
         }
     }
@@ -55,16 +55,14 @@ $( document ).ready( function () {
         },
         messages: {
             password: {
-                required: "Please provide a password",
-                minlength: "Your password must be at least 6 characters long",
-                maxlength: "Your password must consist of at most 18 characters"
+                required: "Please enter a password!",
+                minlength: "Your password must contain at least 6 characters!",
+                maxlength: "Your password is too long!"
 
             },
             password_confirmation: {
-                required: "Please provide a password",
-                minlength: "Your password confirm must be at least 6 characters long",
-                maxlength: "Your password confirm must consist of at most 18 characters",
-                equalTo: "Please enter the same password as above"
+                required: "Please enter a password!",
+                equalTo: "Your confirm password is not match with your password!"
             }
         },
         errorElement: "em",
@@ -94,20 +92,20 @@ $( document ).ready( function () {
             switch(data.message) {
                 case 'email_not_found':
                     utils.alert({
-                        title:'Thong bao',
-                        msg: 'Co loi gi do xay ra. Doi mat khau khong thanh cong'
+                        title:'Error',
+                        msg: 'Something went wrong!'
                     })
                     break;
                 case 'have_error':
                     utils.alert({
-                        title:'Thong bao',
-                        msg: 'Co loi gi do xay ra. Doi mat khau khong thanh cong'
+                        title:'Error',
+                        msg: 'Something went wrong!'
                     })
                     break;
                 case 'success':
                     utils.alert({
-                        title:'Thong bao',
-                        msg: 'Doi mat khau thanh cong',
+                        title:'Notice',
+                        msg: 'Your password has changed!',
                         callback: function(){
                             window.location = window.location.origin;
                         },

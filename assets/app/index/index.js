@@ -28,8 +28,8 @@ $(function () {
                 case 'have_error':
                     setTimeout(function () {
                         utils.alert({
-                            title: 'Thong bao',
-                            msg: 'Co loi gi do xay ra. Chung toi tim kiem friend cho ban'
+                            title: 'Error',
+                            msg: 'Something went wrong!'
                         });
                     }, 500);
                     break;
@@ -86,7 +86,6 @@ $(function () {
                         $('#search-addFriend-btn-destroy').hide();
                         $('#search-addFriend-btn-isFriend').show();
                     }
-
                     break;
             }
         });
@@ -97,8 +96,8 @@ $(function () {
                 case 'have_error':
                     setTimeout(function () {
                         utils.alert({
-                            title: 'Thong bao',
-                            msg: 'Co loi gi do xay ra. Chung toi khong the gui loi moi ket ban cho ban'
+                            title: 'Error',
+                            msg: 'Something went wrong!'
                         });
                     }, 500);
                     break;
@@ -117,8 +116,8 @@ $(function () {
                 case 'have_error':
                     setTimeout(function () {
                         utils.alert({
-                            title: 'Thong bao',
-                            msg: 'Co loi gi do xay ra. Chung toi khong the huy yeu cau cho ban'
+                            title: 'Error',
+                            msg: 'Something went wrong!'
                         });
                     }, 500);
                     break;
@@ -138,8 +137,8 @@ $(function () {
                 case 'have_error':
                     setTimeout(function () {
                         utils.alert({
-                            title: 'Thong bao',
-                            msg: 'Co loi gi do xay ra. Chung toi khong the huy yeu cau cho ban'
+                            title: 'Error',
+                            msg: 'Something went wrong!'
                         });
                     }, 500);
                     break;
@@ -178,8 +177,8 @@ $(function () {
                     case 'have_error':
                         setTimeout(function () {
                             utils.alert({
-                                title: 'Thong bao',
-                                msg: 'Co loi gi do xay ra. Chung toi khong the huy yeu cau cho ban'
+                                title: 'Error',
+                                msg: 'Something went wrong!'
                             });
                         }, 500);
                         break;
@@ -197,8 +196,8 @@ $(function () {
                     case 'have_error':
                         setTimeout(function () {
                             utils.alert({
-                                title: 'Thong bao',
-                                msg: 'Co loi gi do xay ra. Chung toi khong the huy yeu cau cho ban'
+                                title: 'Error',
+                                msg: 'Something went wrong!'
                             });
                         }, 500);
                         break;
@@ -213,8 +212,8 @@ $(function () {
         }
         $scope.deleteFriendRq = function (friendId, friendName) {
             utils.confirm({
-                title: 'Thong bao',
-                msg: 'Ban co muon huy ket ban voi ' + friendName,
+                title: 'Notice',
+                msg: 'Do you want to remove ' + friendName + ' from your friend list?',
                 okText: 'Yes',
                 cancelText: 'No',
                 callback: function () {
@@ -223,8 +222,8 @@ $(function () {
                             case 'have_error':
                                 setTimeout(function () {
                                     utils.alert({
-                                        title: 'Thong bao',
-                                        msg: 'Co loi gi do xay ra. Chung toi khong the huy yeu cau cho ban'
+                                        title: 'Error',
+                                        msg: 'Something went wrong!'
                                     });
                                 }, 500);
                                 break;
@@ -349,14 +348,14 @@ $(function () {
                 switch (res.data.message) {
                     case 'success':
                         utils.alert({
-                            title: 'Thong bao',
-                            msg: 'Đã bookmark câu hỏi này.'
+                            title: 'Notice',
+                            msg: 'Done!'
                         });
                         break;
                     case 'already_bookmark':
                         utils.alert({
-                            title: 'Thong bao',
-                            msg: 'Câu hỏi này đã được bookmark rồi.'
+                            title: 'Error',
+                            msg: 'This question is bookmarked!'
                         });
                         break;
                 }
@@ -377,15 +376,15 @@ $(function () {
         $scope.createReport = function () {
             if ($scope.report.content.trim().length == 0) {
                 utils.alert({
-                    title: 'Thong bao',
-                    msg: 'Noi dung khong duoc bo trong.'
+                    title: 'Error',
+                    msg: 'Please enter report content!'
                 });
                 return;
             }
             if ($scope.report.content.trim().length > 1000) {
                 utils.alert({
-                    title: 'Thong bao',
-                    msg: 'Noi dung qua dai'
+                    title: 'Error',
+                    msg: 'Content is too long!'
                 });
                 return;
             }
@@ -393,8 +392,8 @@ $(function () {
                 if (res.data.message == 'success') {
                     $('#report-create-modal').modal('hide');
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Chung toi se review lai cau hoi.Cam on ban da dong gop y kien.'
+                        title: 'Notice',
+                        msg: "Thanks for your feedback! We'll review this question."
                     });
                 }
             });
@@ -411,8 +410,8 @@ $(function () {
                     $scope.backToGameNoti();
                 }else if(res.body.message == 'not_enough_question'){
                     utils.alert({
-                        title:'Thong bao',
-                        msg: 'Chung toi khong du cau hoi.'
+                        title:'Error',
+                        msg: "Sorry! We don't have enough question."
                     });
                 }
                 $scope.$apply();
@@ -431,8 +430,8 @@ $(function () {
             io.socket.post('/game/rank/cancel', { code: $scope.codeRank }, function responseFromServer(body, res) {
                 if (res.body.message == 'have_err') {
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Co loi gi do xay ra.'
+                        title: 'Error',
+                        msg: 'Something went wrong!'
                     });
                 }
                 $scope.codeRank = undefined;
@@ -442,8 +441,8 @@ $(function () {
             io.socket.post('/game/rank/joingame', { code: $scope.codeRank }, function (res, jwres) {
                 if (res.message == 'have_err') {
                     utils.alert({
-                        title: 'Thong bao',
-                        msg: 'Co loi gi do xay ra. Có thể do sự cố mất mạng'
+                        title: 'Error',
+                        msg: 'Something went wrong'
                     });
                     $('#rank-request-modal').modal('hide');
                 } else if (res.message == 'in_room') {
@@ -493,14 +492,14 @@ $(function () {
                 console.log(res.message)
                 if(res.message == 'have_err'){
                     utils.alert({
-                        title:'Warning',
-                        msg: 'Somthing just happened. check your connection'
+                        title:'Error',
+                        msg: 'Somthing went wrong!'
                     });
                     return;
                 }else if(res.message == 'not_enough_question'){
                     utils.alert({
-                        title:'Warning',
-                        msg: 'We dont have enough question bank'
+                        title:'Error',
+                        msg: "Sorry! We don't have enough question."
                     });
                     return;
                 }else if(res.message == 'user_is_playing'){
@@ -508,14 +507,14 @@ $(function () {
                     return;
                 }else if(res.message == 'friend_is_playing'){
                     utils.alert({
-                        title:'Warning',
-                        msg: 'Your request playing not success.Your friend is playing other game.'
+                        title:'Notice',
+                        msg: 'Your friend is playing other game.'
                     });
                     return;
                 }else if(res.message == 'not_online'){
                     utils.alert({
-                        title:'Warning',
-                        msg: 'Your request playing not success. Your friend not online.'
+                        title:'Notice',
+                        msg: 'Your friend is offline.'
                     });
                     return;
                 }
@@ -573,8 +572,8 @@ $(function () {
         });
         io.socket.on('friend-game-invite-refuse', function (msg) {
             utils.alert({
-                title: 'Warning',
-                msg: 'your invite be refused'
+                title: 'Notice',
+                msg: 'Your invite is refused!'
             });
             $('#friend-invite-success-modal').modal('hide');
         });
@@ -605,8 +604,8 @@ $(function () {
                 } else {
                     if (res.data.err == 'is_testing') {
                         utils.confirm({
-                            title: 'Warning',
-                            msg: 'You are not finish this test yet.Do you want back to the last test?',
+                            title: 'Notice',
+                            msg: "You haven't finished the test yet.Do you want to come back?",
                             okText: 'Go to test',
                             callback: function () {
                                 window.location.href = window.location.origin + '/test';
@@ -614,8 +613,8 @@ $(function () {
                         });
                     } else if (res.data.err == 'not_enough_question') {
                         utils.alert({
-                            title: 'Thong bao',
-                            msg: 'Khong du cau hoi'
+                            title: 'Error',
+                            msg: "Sorry! We don't have enough question."
                         });
                     }
                 }
@@ -635,8 +634,6 @@ $(function () {
                 if (res.data.message == 'success') {
                     $scope.history_test.data = res.data.history;
                     $scope.history_test.pages = Math.ceil(res.data.count / $scope.history_test.limit);
-                } else {
-
                 }
             });
         }
@@ -660,13 +657,12 @@ $(function () {
                 } else if (res.data.message == 'user_is_playing') {
                     $scope.indexIsPlaying = true;
                 }
-
             });
         }
         $scope.backToGameNoti = function () {
             utils.confirm({
-                title: 'Warning',
-                msg: 'you are in match. Do you want come back?',
+                title: 'Notice',
+                msg: "You haven't finished the match. Do you want to come back?",
                 okText: 'Yes',
                 cancelText: 'No',
                 callback: function () {
