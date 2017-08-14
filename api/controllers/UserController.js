@@ -64,8 +64,7 @@ module.exports = {
 				}else{
 					return res.notFound();
 				}
-			})
-			
+			})		
 		});
 	},
 	reVerifyUser: function(req, res){
@@ -129,7 +128,6 @@ module.exports = {
 				})
 			})
 		});
-
 	},
 	changepasswordWithSession: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});
@@ -294,8 +292,7 @@ module.exports = {
 	    countBookmark().then(list).then(function(questions){
 	    	var pages = Math.ceil(count / limit);
 	    	return res.json({message:'success', questions: questions, pages:pages});
-	    })
-		
+	    })	
 	},
 	deleteBookMark:function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});

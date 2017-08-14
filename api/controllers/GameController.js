@@ -79,12 +79,6 @@ module.exports = {
 					    			shakehand();
 					    		}
 
-					    		// // PLAYER 1 DISCONNECTED , PLAYER 2 DISCONNECTED
-					    		// if(playerOneSocket.length == 0 && playerTwoSocket.length ==0){
-					    		// 	socRQ.destroyRoom(playerOneId, function(){});
-					    		// 	socRQ.destroyRoom(playerTwoId, function(){});
-					    		// }
-
 					    		// PLAYER 1 CONNECTED , PLAYER 2 CONNECTED
 					    		if(playerOneSocket.length != 0 && playerTwoSocket.length !=0){
 					    			res.json({message:'success'});
@@ -228,7 +222,6 @@ module.exports = {
 	    		})
 	    	})
 	    }
-
 
 	    SetUpPlayer().then(SetUpQuestion).then(function(){
 	    	sails.sockets.broadcast('rank-queue-' + id1, 'startGame', {});

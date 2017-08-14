@@ -13,7 +13,6 @@ var answerPopup = '<div class="div-in-grid ui-grid-cell-contents" ng-class="(row
 				'				</div>' +
 				'			</div>' +
 				'			<input type="text" ng-model="an.content" class="form-control h-36" placeholder="Answer" disabled>' +
-				// '			<div class="input-group-addon btn-remove-answer-in-table" ng-click="grid.appScope.removeAnswer(row.entity[col.field], $index)"><i class="fa fa-times" aria-hidden="true"></i></div>' +
 				'		</div>' +
 				'	</div>' +
 				'   <button ng-if="row.entity[col.field].length != 4" class="btn btn-success" ng-click="grid.appScope.addAnswer(row.entity[col.field])">Add a answer</button>'
@@ -155,17 +154,6 @@ var contentPopup = '<div  class="h-36 ui-grid-cell-contents" ng-class="(row.enti
 				$scope.follow();
 			}
 		);
-		//THEO DOI CONTENT VA EXPLAIN
-	 //  	$scope.$watch(function(scope) { return scope.reqObj.search.by },
-		// 	function(newValue, oldValue) {
-		// 		$scope.follow();
-		// 	}
-		// );
-
-	  	// //THEO DOI SEARCH
-	  	// $('#searchStr').keypress(function(){
-	   //      $scope.follow();
-	   //  });
 
 		//THEO DOI TAKE BAO NHIEU BAN GHI
 	  	$scope.$watch(function(scope) { return scope.reqObj.pagging.take },

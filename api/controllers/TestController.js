@@ -282,7 +282,6 @@ module.exports = {
 	    }).catch(function(err){
 	    	res.json({message:'have_err'})
 	    });
-
 	}
 };
 

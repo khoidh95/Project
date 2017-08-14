@@ -1,24 +1,6 @@
 <% layout('../common/index-layout.ejs') -%>
 	<section id="test-section" ng-controller="testCtr">
 		<div id="hide-1" class="container">
-			<!-- <div>
-			<div>
-				<h2><label class="label label-primary">Kanji</label></h2>
-				<hr class="hr hr-primary" />
-			</div>
-			<div ng-repeat="q in questions.kanji">
-				<div class="question-game-wraper" ng-bind-html="q.content"></div>
-				<div class="row margin-bt-20">
-					<div ng-repeat="a in q.answer" class="col-xs-12 col-sm-6">
-						<div class="answer-game-item no-radius" 
-							ng-class="{'answer-one':($index == 0),'answer-two':($index == 1),'answer-three':($index == 2),'answer-four':($index == 3),'opacity-0-3':a.isNoChoice}" ng-click="submitAnswer(q.id,a.id)">
-							{{a.content}}
-						</div>
-					</div>
-				</div>
-				<hr class="hr hr-primary" />
-			</div>
-		</div> -->
 			<div>
 				<div ng-repeat="q in questions | startFrom:testSkip | limitTo:1">
 					<h2>
