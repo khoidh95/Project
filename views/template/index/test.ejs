@@ -113,12 +113,9 @@
 					var distance = countDownDate - now;
 					// Update the count down every 1 second
 					var x = $interval(function () {
-
 						distance -= 1000;
-
 						var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 						var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
 						// Display the result in the element with id="demo"
 						$scope.countDown = minutes + " : " + seconds;
 						// If the count down is finished, write some text 
@@ -126,7 +123,6 @@
 							$scope.countDown = 'Time out!';
 							$scope.manche = true;
 							$interval.cancel(x);
-
 						}
 					}, 1000);
 				}
@@ -186,7 +182,6 @@
 				});
 			})
 		})();
-
 	</script>
 	<style>
 		#test-section {
