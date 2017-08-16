@@ -8,6 +8,7 @@ var mysql = {
 					'AND u.id = ' + userId;
 		return query;
 	},
+	
 	listFriendOnline: function(list) {
 		var head= 'SELECT u.id, u.displayName, u.jlpt, u.level, u.avatar, u.score,  ' +
 					'(SELECT COUNT(*) FROM test.user WHERE test.user.score>=u.score) AS rank  ' +
@@ -119,7 +120,6 @@ var mysql = {
 				'FROM test.user as u WHERE u.role = "member" and isActive = true '+
 				'ORDER BY rank '+
 				'LIMIT 0, 10';
-
 	},
 	// SELECT r.id, r.userId,r.questionId,r.content, r.resolve,q.content as "question_content",
 	// q.explain as "question_explain",q.type as "question_type",q.jlpt as"question_jlpt",

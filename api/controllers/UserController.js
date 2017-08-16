@@ -167,7 +167,6 @@ module.exports = {
 			    if (fs.existsSync(dir)){
 			        return
 			    }
-
 			    try{
 			        fs.mkdirSync(dir)
 			    }catch(err){
